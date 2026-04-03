@@ -2002,24 +2002,24 @@ setupPopup('freelancing-nav-link', 'freelancing-popup');
 setupPopup('freelancing-mobile-nav-link', 'freelancing-popup');
 </script>
 <script>
-const el = document.getElementById("typing-text");
-if (!el) return;
+document.addEventListener("DOMContentLoaded", function () {
+  const text = "From Learning to Earning – Before You Graduate";
+  let index = 0;
 
-const text = el.innerText;
-el.innerText = "";
+  function typeEffect() {
+    const el = document.getElementById("typing-text");
+    if (!el) return;
 
-let index = 0;
-
-function typeEffect() {
-  if (index < text.length) {
-    el.innerText += text.charAt(index);
-    index++;
-    setTimeout(typeEffect, 40);
+    if (index < text.length) {
+      el.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 40);
+    }
   }
-}
 
-typeEffect();
-  <script>
+  typeEffect();
+});
+</script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="FkbQQXJlHqgmS3tuc7c64";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 </body>
