@@ -2022,10 +2022,12 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
 (function(){
-  var script = document.createElement("script");
-  script.src = "https://www.chatbase.co/embed.min.js";
-  script.id = "FkBQQXJIHqgmS3tuc7c64";  /* your id */
-  document.body.appendChild(script);
+  if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+    var script = document.createElement("script");
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.id = "FkBQQXJIHqgmS3tuc7c64";
+    document.body.appendChild(script);
+  }
 })();
 </script>
 </body>
