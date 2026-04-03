@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Completion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #FFA726, #FB8C00);
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #FFA726, #FB8C00); }
+            100% { background: linear-gradient(135deg, #FB8C00, #FFA726); }
+        }
+        .certificate {
+            border: 5px solid rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.5), -3px -3px 0px 0px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .certificate:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+        .certificate h1 {
+            font-size: 2.5em;
+            color: #1a73e8;
+        }
+        .certificate h2 {
+            font-size: 1.5em;
+            color: #555;
+        }
+        .certificate img {
+            max-width: 150px;
+            margin: 20px 0;
+            border-radius: 50%;
+        }
+        .certificate p {
+            font-size: 1.2em;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .certificate {
+                width: 90%;
+                padding: 10px;
+                border: 3px solid rgba(0, 0, 0, 0.5);
+                box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5), -2px -2px 0px 0px rgba(0, 0, 0, 0.5);
+            }
+            .certificate h1 {
+                font-size: 1.8em;
+            }
+            .certificate h2 {
+                font-size: 1em;
+            }
+            .certificate p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <img src="../Taskveda_logo_circle_whitebg.png" alt="Taskveda Logo">
+        <h1>Certificate of Completion</h1>
+        <h2>This is to certify that</h2>
+        <h2 style="color: #1a73e8;">MIRYALA SRILEKHA</h2>
+        <p>has successfully completed the a 3-month Campus Ambassador Internship with TaskVeda</p>
+        <p><strong>Date:</strong> October 06, 2025</p>
+    </div>
+</body>
+</html>

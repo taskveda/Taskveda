@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internships at TaskVeda</title>
+<meta name="description" content="Explore AI, Deep Learning, and other exciting internship opportunities at TaskVeda. Apply now to gain hands-on experience and kickstart your career." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{
+      color:#1c2e40;
+      line-height:1.6;
+      background: linear-gradient(180deg,#ffffff 0%,#fff7f0 40%,#f6faff 100%) fixed;
+      min-height:100vh;
+    }
+
+    header{
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding:20px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;top:0;z-index:1000;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
+    header img{height:50px;}
+    nav a{margin-left:15px;color:#1c2e40;text-decoration:none;font-weight:600;font-size:0.95rem;transition:color 0.3s;}
+    nav a:hover{color:#ff6f00;}
+
+    /* Hamburger & Mobile Menu Styles */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;z-index:1100;margin-left:auto;}
+    .hamburger span{width:25px;height:3px;background:#1c2e40;border-radius:3px;transition:transform 0.3s,opacity 0.3s;}
+
+    .mobile-menu{position:fixed;top:0;right:-260px;width:240px;height:100vh;background:rgba(255, 255, 255, 0.7);backdrop-filter:blur(10px);box-shadow:-2px 0 8px rgba(0,0,0,0.1);padding:60px 25px 20px;display:flex;flex-direction:column;gap:22px;transition:right 0.3s ease;z-index:1500;}
+    .mobile-menu a{color:#1c2e40;font-weight:600;text-decoration:none;font-size:1rem;}
+    .mobile-menu .close-btn{position:absolute;top:15px;right:20px;font-size:2rem;text-decoration:none;color:#1c2e40;}
+    .mobile-menu.open{right:0;}
+
+    .fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+    .fa-linkedin:before{content:"\f0e1";}
+    .fa-whatsapp:before{content:"\f232";}
+
+    .container{padding:60px 20px;max-width:1200px;margin:auto;}
+    .row{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
+    .internship{flex:1 1 45%;max-width:500px;text-align:center;}
+    .internship img{max-width:100%;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin-bottom:20px;}
+    .internship h2{color:#ff6f00;margin-bottom:10px;}
+    .internship p{font-size:1rem;margin-bottom:15px;}
+    .internship a{background:#ff6f00;color:#fff;padding:12px 25px;border-radius:30px;text-decoration:none;display:inline-block;transition:background 0.3s;}
+    .internship a:hover{background:#00aaff;}
+    footer{background:#0f1624;color:#ffffff;text-align:center;padding:20px 20px;margin-top:0;}
+    footer a{color:#ff6f00;text-decoration:underline;}
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+      max-width: 400px;
+      width: 90%;
+      transform: scale(0.9) translateY(-20px);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .popup-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .popup-overlay.show .popup-content {
+        transform: scale(1) translateY(0);
+    }
+
+    .popup-content .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .popup-content .close-btn:hover {
+      color: #ff6f00;
+      transform: rotate(90deg);
+    }
+
+    .popup-content p {
+        font-size: 1.1rem;
+        color: #1c2e40;
+        margin: 0;
+        line-height: 1.6;
+    }
+    /* Responsive nav toggle */
+    @media (max-width: 768px){
+      .desktop-nav{display:none;}
+      .hamburger{display:flex;}
+    }
+  </style>
+<style>
+  /* Custom Chatbase Icon */
+  #chatbase-bubble-button {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    color: #ff6f00 !important;
+    border-radius: 50% !important;
+    width: 60px !important;
+    height: 60px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
+  }
+  #chatbase-bubble-button > svg {
+    display: none !important;
+  }
+  #chatbase-bubble-button::before {
+    content: "\f075"; /* Font Awesome chat icon */
+    font-family: FontAwesome;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+
+  /* Liquid Glass Effect */
+  .chatbase-window {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 15px !important;
+  }
+  .chatbase-message {
+    background: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  }
+</style>
+</head>
+<body>
+<!-- Cohesive Gradient & Blob Overlay -->
+<style>
+body::before {
+  content: '';
+  position: fixed;
+  inset: -15% -15%;
+  background:
+    radial-gradient(ellipse at 25% 30%, rgba(255,111,0,0.14) 0%, rgba(255,111,0,0) 55%),
+    radial-gradient(ellipse at 75% 20%, rgba(0,170,255,0.14) 0%, rgba(0,170,255,0) 55%),
+    radial-gradient(ellipse at 40% 80%, rgba(255,0,128,0.12) 0%, rgba(255,0,128,0) 55%),
+    radial-gradient(ellipse at 80% 75%, rgba(0,200,83,0.12) 0%, rgba(0,200,83,0) 55%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+  animation: blobMove 25s ease-in-out infinite alternate;
+}
+@keyframes blobMove { 0%{transform:scale(1) translate(0,0);} 50%{transform:scale(1.2) translate(5%,-3%);} 100%{transform:scale(1) translate(-3%,4%);} }
+
+/* make header transparent to match index */
+header{background:transparent!important;}
+</style>
+<!-- tv-footer styles -->
+<style>
+.tv-footer {
+  background:#0f1624!important;
+  color:#f1f1f1;
+  padding:40px 20px 20px;
+}
+.tv-footer-container {max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;}
+.tv-brand-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.tv-logo{height:50px;margin-bottom:15px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25));}
+.tv-brand-name{font-size:1.4rem;font-weight:700;color:#ffffff;}
+.tv-tagline{max-width:320px;font-size:0.95rem;margin:10px 0 20px;color:#d1d7e0;}
+.tv-social-icons{display:flex;gap:18px;}
+.tv-social-icons a{color:#d1d7e0;font-size:1.5rem;transition:opacity 0.3s ease;text-decoration:none!important;}
+.tv-social-icons a:hover{color:#ff6f00;}
+.tv-footer-contact h3{margin-bottom:12px;font-size:1.2rem;color:#ffffff;}
+.tv-footer-contact a{color:#ffffff;text-decoration:underline;}
+.tv-footer-contact a:hover{opacity:0.8;}
+@media(max-width:768px){.tv-footer-container{flex-direction:column;align-items:flex-start;}.tv-footer-brand,.tv-footer-contact{flex:1 1 100%;}.tv-footer-contact{margin-top:30px;}}
+</style>
+<header>
+  <img src="Taskveda_logo_circle_whitebg-remoe bg.png" alt="TaskVeda Logo">
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="internships.html">Internships</a>
+    <a href="index.html#freelancing" id="freelancing-nav-link">Freelancing Gigs</a>
+    <a href="index.html#campus">Campus Ambassadors</a>
+    <a href="index.html#events">Events</a>
+    <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Community</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- Mobile Sidebar Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+  <a href="index.html">Home</a>
+  <a href="internships.html">Internships</a>
+  <a href="index.html#freelancing" id="freelancing-mobile-nav-link">Freelancing Gigs</a>
+  <a href="index.html#campus">Campus Ambassadors</a>
+  <a href="index.html#events">Events</a>
+  <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Community</a>
+</div>
+
+<div class="container">
+  <h1 style="text-align:center;margin-bottom:40px;">Events Live by TaskVeda</h1>
+  <div class="row">
+
+    <div class="internship">
+      <img src="events/upcoming/College to Career.jpg" alt="College to Career">
+      <h2>College to Career</h2>
+      <p>A Crisp Webinar for College Students to make a Career in IT Industry<br>Mode: Online Meet</p>
+      <a href="https://forms.gle/mcfseVq5vU9yxE7JA" target="_blank">Register Now</a>
+    </div>
+    <!-- <div class="internship">
+      <img src="aipe.jpeg" alt="AI Tools & Prompt Engineering Internship">
+      <h2>AI Tools & Prompt Engineering </h2>
+      <p>Starts: -- --<br>Duration: 1 Month<br>Mode: Online Meet</p>
+      <a href="https://forms.gle/4NcvKbcJrZhMFopPA" target="_blank">Apply Now</a>
+    </div>  -->
+  </div>
+  <h1 style="text-align:center;margin-bottom:48px;">   </h1>
+  <!-- <div class="row">
+    <div class="internship">
+      <img src="dmcc.jpeg" alt="Digital Marketing & Content Creation Internship">
+      <h2>Digital Marketing & Content Creation</h2>
+      <p>Starts: -- --<br>Duration: 1 Month<br>Mode: Online Meet</p>
+      <a href="https://forms.gle/7v1e7UUuouCCgDvw8" target="_blank">Apply Now</a>
+    </div>
+  </div>  -->
+</div>
+
+<!-- Popup for Freelancing -->
+<div id="freelancing-popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <p>Currently, we don’t have any freelancing opportunities listed.<br>Once available, they will be posted here. Stay tuned!</p>
+  </div>
+</div>
+
+<!-- tv-footer section -->
+<section class="tv-footer">
+  <div class="tv-footer-container">
+    <div class="tv-footer-brand">
+      <div class="tv-brand-row">
+        <img src="Taskveda_logo_footer.png" alt="TaskVeda Logo" class="tv-logo"/>
+        <span class="tv-brand-name">TaskVeda</span>
+      </div>
+      <p class="tv-tagline">Connecting students, empowering futures. Join our vibrant community today!</p>
+      <div class="tv-social-icons">
+        <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank" aria-label="WhatsApp" class="fa fa-whatsapp"></a>
+        <a href="https://www.instagram.com/taskveda/" target="_blank" aria-label="Instagram" class="fa fa-instagram"></a>
+        <a href="https://www.linkedin.com/company/taskveda/" target="_blank" aria-label="LinkedIn" class="fa fa-linkedin"></a>
+        <a href="https://www.youtube.com/@taskveda" target="_blank" aria-label="YouTube" class="fa fa-youtube-play"></a>
+      </div>
+    </div>
+    <div class="tv-footer-contact">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:info@taskveda.in" style="color:orange;">info@taskveda.in</a></p>
+      <p>WhatsApp: <a href="https://wa.me/919290610568" target="_blank" style="color:orange;">+91 9290610568</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 TaskVeda. Connect with us at <a href="mailto:info@taskveda.in">info@taskveda.in</a></p>
+</footer>
+<script>
+function toggleMenu(){
+  const menu=document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+</script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="FkbQQXJlHqgmS3tuc7c64";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+<script>
+// Popup Logic
+function setupPopup(linkId, popupId) {
+    const link = document.getElementById(linkId);
+    const popup = document.getElementById(popupId);
+    const closeBtn = popup.querySelector('.close-btn');
+
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        popup.classList.add('show');
+    });
+
+    function closePopup() {
+        popup.classList.remove('show');
+    }
+
+    closeBtn.addEventListener('click', closePopup);
+
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape" && popup.classList.contains('show')) {
+            closePopup();
+        }
+    });
+}
+
+setupPopup('freelancing-nav-link', 'freelancing-popup');
+setupPopup('freelancing-mobile-nav-link', 'freelancing-popup');
+</script>
+</body>
+</html>

@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TaskVeda – Internships, Freelancing & Jobs for Students in India</title>
+  <meta name="description" content="TaskVeda helps students find internships, freelancing opportunities, and day jobs while learning real skills.">
+<meta name="keywords" content="internships for students, student jobs India, freelancing for beginners, skill development">
+<meta name="robots" content="index, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" href="web-app-manifest-512x512.ico">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{
+  color:#1c2e40;
+  line-height:1.6;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 50%, #fff 100%) fixed;
+  min-height: 100vh;
+}
+    header{
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+    header img{height:50px;}
+    nav a{margin-left:15px;color:#1c2e40;text-decoration:none;font-weight:600;font-size:0.95rem;}
+    nav a:hover{color:#ff6f00;}
+
+    /* Hamburger & Mobile Menu Styles */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;z-index:1100;margin-left:auto;}
+    .hamburger span{width:25px;height:3px;background:#1c2e40;border-radius:3px;transition:transform 0.3s,opacity 0.3s;}
+
+    .mobile-menu{position:fixed;top:0;right:-260px;width:240px;height:100vh;background:rgba(255, 255, 255, 0.7);backdrop-filter:blur(10px);box-shadow:-2px 0 8px rgba(0,0,0,0.1);padding:60px 25px 20px;display:flex;flex-direction:column;gap:22px;transition:right 0.3s ease;z-index:1500;background: transparent;backdrop-filter: blur(10px);}
+    .mobile-menu a{color:#1c2e40;font-weight:600;text-decoration:none;font-size:1rem;}
+    .mobile-menu .close-btn{position:absolute;top:15px;right:20px;font-size:2rem;text-decoration:none;color:#1c2e40;}
+    .mobile-menu.open{right:0;}
+
+    /* Responsive nav toggle */
+    @media(max-width:768px){
+      .desktop-nav{display:none;}
+      .hamburger{display:flex;}
+    }
+    .hero{
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero::before {
+  top: -100px;
+  left: -100px;
+  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
+}
+
+.hero::after {
+  bottom: -100px;
+  right: -100px;
+  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
+}
+
+.hero h1, .hero h2, .hero p {
+  position: relative;
+  z-index: 1;
+}
+    .hero h1{font-size:3rem;color:#ff6f00;}
+    .hero p{font-size:1.2rem;max-width:600px;margin:20px auto;}
+    .hero a{background:#ff6f00;color:#fff;padding:15px 30px;border-radius:30px;font-size:1rem;text-decoration:none;display:inline-block;margin:10px;transition:background 0.3s;}
+    .hero a:hover{background:#00aaff;}
+    .features{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:80px 20px;position:relative;overflow:hidden;background:transparent;}
+
+.features::before,
+.features::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.features::before {
+  top: -100px;
+  left: -100px;
+  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
+}
+
+.features::after {
+  bottom: -100px;
+  right: -100px;
+  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
+}
+    .card{background:rgba(255, 255, 255, 0.8);color:#1c2e40;padding:30px;border-radius:10px;max-width:250px;text-align:center;cursor:pointer;transition:background 0.3s, color 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.05);text-decoration:none;}
+    .card:hover{background:#ff6f00;color:#fff;}
+    .card h3{margin-bottom:10px;}
+    .card p{font-size:0.95rem;}
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+      max-width: 400px;
+      width: 90%;
+      transform: scale(0.9) translateY(-20px);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .popup-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .popup-overlay.show .popup-content {
+        transform: scale(1) translateY(0);
+    }
+
+    .popup-content .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .popup-content .close-btn:hover {
+      color: #ff6f00;
+      transform: rotate(90deg);
+    }
+
+    .popup-content p {
+        font-size: 1.1rem;
+        color: #1c2e40;
+        margin: 0;
+        line-height: 1.6;
+    }
+    footer{
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(221, 221, 221, 0.5);
+  text-align:center;
+  padding:40px 20px;
+  position:relative;
+  overflow:hidden;
+}
+
+footer::before,
+footer::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+footer::before {
+  top: -100px;
+  left: -100px;
+  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
+}
+
+footer::after {
+  bottom: -100px;
+  right: -100px;
+  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
+}
+
+footer p {
+  position: relative;
+  z-index: 1;
+}
+    footer a{color:#ff6f00;text-decoration:none;}
+    /* Font Awesome style for icons */
+    .fa {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .fa-linkedin:before { content: "\f0e1"; }
+    .fa-envelope:before { content: "\f0e0"; }
+    
+    /* Ambassador Carousel Styles */
+    .ambassador-carousel {
+      width: 100%;
+      max-width: 1200px;
+      margin: 40px auto 0;
+      overflow: hidden;
+      padding: 20px 0;
+      position: relative;
+    }
+    .ambassador-container {
+      display: flex;
+      gap: 30px;
+      padding: 10px;
+      min-width: max-content;
+      animation: scrollCarousel 40s linear infinite;
+      animation-play-state: running;
+    }
+    .ambassador-carousel:hover .ambassador-container {
+      animation-play-state: paused;
+    }
+    @keyframes scrollCarousel {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        /* This value is calculated based on the width of one set of ambassadors */
+        transform: translateX(calc(-230px * 7));
+      }
+    }
+    .ambassador {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 16px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 250px;
+      justify-content: flex-start;
+    }
+    .ambassador:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .ambassador-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 15px;
+      border: 3px solid #ff6f00;
+    }
+    .ambassador-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ambassador h3 {
+      color: #1c2e40;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      margin-top: 0;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .college-info {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      margin-top: 8px;
+      width: 100%;
+      min-height: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    .college-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #ddd;
+    }
+    .college-name {
+      font-size: 0.75rem;
+      color: #666;
+      text-align: center;
+      line-height: 1.2;
+      font-weight: 500;
+    }
+    .ambassador p {
+      color: #ff6f00;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      margin-top: 0;
+      width: 100%;
+      text-align: center;
+      /* Removed display: flex, align-items, justify-content for better alignment */
+      display: block;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+      margin-top: auto;
+    }
+    .social-btn {
+      background: #f0f0f0;
+      color: #1c2e40;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 0;
+      line-height: 1;
+      overflow: hidden;
+    }
+    .social-btn i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+    .social-btn:hover {
+      background: #ff6f00;
+      color: #fff;
+    }
+    
+    @media(max-width:768px){
+      nav a{margin:10px 10px 0 0;display:inline-block;}
+      .hero h1{font-size:2.2rem;}
+      .features{flex-direction:column;align-items:center;}
+      .ambassador-container {
+        padding: 10px 20px;
+      }
+      .ambassador {
+        width: 180px;
+      }
+    }
+  </style>
+<style>
+  /* Custom Chatbase Icon */
+  #chatbase-bubble-button {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    color: #ff6f00 !important;
+    border-radius: 50% !important;
+    width: 60px !important;
+    height: 60px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
+  }
+  #chatbase-bubble-button > svg {
+    display: none !important;
+  }
+  #chatbase-bubble-button::before {
+    content: "\f075"; /* Font Awesome chat icon */
+    font-family: FontAwesome;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+
+  /* Liquid Glass Effect */
+  .chatbase-window {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 15px !important;
+  }
+  .chatbase-message {
+    background: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  }
+
+</style>
+</head>
+<body>
+<!-- Cohesive Gradient Styles -->
+<style>
+body {
+  background: linear-gradient(180deg, #ffffff 0%, #fff7f0 40%, #f6faff 100%) fixed !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Translucent irregular blobs overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -15% -15%; /* cover slightly beyond viewport */
+  background: 
+    radial-gradient(ellipse at 25% 30%, rgba(255,111,0,0.14) 0%, rgba(255,111,0,0) 55%),
+    radial-gradient(ellipse at 75% 20%, rgba(0,170,255,0.14) 0%, rgba(0,170,255,0) 55%),
+    radial-gradient(ellipse at 40% 80%, rgba(255,0,128,0.12) 0%, rgba(255,0,128,0) 55%),
+    radial-gradient(ellipse at 80% 75%, rgba(0,200,83,0.12) 0%, rgba(0,200,83,0) 55%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+  animation: blobMove 25s ease-in-out infinite alternate;
+}
+
+@keyframes blobMove {
+  0%   { transform: scale(1) translate(0,0); }
+  50%  { transform: scale(1.2) translate(5%, -3%); }
+  100% { transform: scale(1) translate(-3%, 4%); }
+}
+
+/* Make all major areas transparent so the body gradient shows */
+header, footer, section, .hero, .features, .team-section, .community-stats-section, #event-gallery, #events, #campus, .faq-section {
+  background: transparent !important;
+}
+
+/* Remove decorative pseudo elements that cause visual breaks */
+section::before, section::after,
+.hero::before, .hero::after,
+.features::before, .features::after,
+.team-section::before, .team-section::after,
+.community-stats-section::before, .community-stats-section::after,
+footer::before, footer::after,
+.faq-section::before, .faq-section::after {
+  display: none !important;
+  content: none !important;
+}
+</style>
+<header>
+  <img src="Taskveda_logo_circle_whitebg-remoe bg.png" alt="TaskVeda Logo">
+  <nav class="desktop-nav">
+    <a href="#">Home</a>
+    <a href="internships.html">Internships</a>
+    <a href="#freelancing" id="freelancing-nav-link">Freelancing Gigs</a>
+    <a href="#campus">Campus Ambassadors</a>
+    <a href="events.html">Events</a>
+    <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Community</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+
+<!-- Mobile Sidebar Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+  <a href="#">Home</a>
+  <a href="internships.html">Internships</a>
+  <a href="#freelancing" id="freelancing-mobile-nav-link">Freelancing Gigs</a>
+  <a href="#campus">Campus Ambassadors</a>
+  <a href="#events">Events</a>
+  <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Community</a>
+</div>
+<section class="hero" id="apply">
+  <h1 id="typing"></h1>
+  <p>Connecting ambitious students to opportunities that build careers—while still in college.</p>
+  <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Join Community</a>
+</section>
+<section id="features" class="features">
+  <div class="card" id="day-job-card">
+    <h3>Day‑Jobs</h3>
+    <p>Practical exposure through volunteering.</p>
+  </div>
+  <a href="internships.html" class="card">
+    <h3>Internships</h3>
+    <p>Real projects. Certified experience.</p>
+  </a>
+  <div id="freelancing" class="card">
+    <h3>Freelancing</h3>
+    <p>Earn experience through real gigs.</p>
+  </div>
+  <a href="https://forms.gle/P3fZPZ5bRbhpffNq6" target="_blank" class="card">
+    <h3>Campus Ambassador</h3>
+    <p>Apply now to represent your college with TaskVeda.</p>
+  </a>
+</section>
+
+<!-- Popup for Day-Jobs -->
+<div id="day-job-popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <p>Currently, we don’t have any day jobs listed.<br>Once available, they will be posted here. Stay tuned!</p>
+  </div>
+</div>
+
+<!-- Popup for Freelancing -->
+<div id="freelancing-popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <p>Currently, we don’t have any freelancing opportunities listed.<br>Once available, they will be posted here. Stay tuned!</p>
+  </div>
+</div>
+
+<section id="campus" class="hero">
+  <h2>Our Campus Ambassadors</h2>
+  <p>Meet our amazing team of campus ambassadors representing TaskVeda across colleges.</p>
+  <div class="ambassador-carousel">
+    <div class="ambassador-container">
+      <!-- Original set of ambassadors -->
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Shreya Yadav.jpg" alt="Shreya Yadav">
+        </div>
+        <h3>Shreya Yadav</h3>
+        <div class="college-info">
+          <img src="college_logo/Jaypee institute of information technology.jpg" alt="Jaypee Institute of Information Technology" class="college-logo">
+          <span class="college-name">Jaypee Institute of Information Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/shreya-yadav-/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/KOMMA NITHYANANDHA REDDY.jpg" alt="Komma Nithyanandha Reddy">
+        </div>
+        <h3>Komma Nithyanandha Reddy</h3>
+        <div class="college-info">
+          <img src="college_logo/KL university.jpg" alt="KL University" class="college-logo">
+          <span class="college-name">KL University</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/nandhareddy/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Meera Padala.jpeg" alt="Meera Padala">
+        </div>
+        <h3>Meera Padala</h3>
+        <div class="college-info">
+          <img src="college_logo/Geethanjali college of engineering and technology.jpeg" alt="Geethanjali College of Engineering and Technology" class="college-logo">
+          <span class="college-name">Geethanjali College of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/meera-padala-bab86128a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Rani.jpeg" alt="Rani">
+        </div>
+        <h3>Rani</h3>
+        <div class="college-info">
+          <img src="college_logo/Brilliant institute of engineering and technology.jpeg" alt="Brilliant Institute of Engineering and Technology" class="college-logo">
+          <span class="college-name">Brilliant Institute of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/rani-edgar-317031301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Swapanth Kumar.jpeg" alt="Swapanth Kumar">
+        </div>
+        <h3>Swapanth Kumar</h3>
+        <div class="college-info">
+          <img src="college_logo/Brilliant institute of engineering and technology.jpeg" alt="Brilliant Institute of Engineering and Technology" class="college-logo">
+          <span class="college-name">Brilliant Institute of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/akarapu-swapanth-270b32347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Gayathri Ravula.jpg" alt="Gayathri Ravula">
+        </div>
+        <h3>Gayathri Ravula</h3>
+        <div class="college-info">
+          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
+          <span class="college-name">Pallavi Engineering College</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/gayathri-ravula-31a840339" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Agulla prasanna.jpeg" alt="Agulla prasanna">
+        </div>
+        <h3>Agulla Prasanna</h3>
+        <div class="college-info">
+          <img src="college_logo/Geethanjali college of engineering and technology.jpeg" alt="Geethanjali college of engineering and technology" class="college-logo">
+          <span class="college-name">Geethanjali college of engineering and technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/agulla-prasanna-011135301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Srilekha Miryala.jpeg" alt="Srilekha Miryala">
+        </div>
+        <h3>Srilekha Miryala</h3>
+        <div class="college-info">
+          <img src="college_logo/Avanthi Institute Of Engineering and Technology.png" alt="Avanthi Institute Of Engineering and Technology" class="college-logo">
+          <span class="college-name">Avanthi Institute Of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/srilekha-miryala-0b32822bb" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <!-- new people -->
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Kamran Askari.jpeg" alt="Kamran Askari">
+        </div>
+        <h3>Kamran Askari</h3>
+        <div class="college-info">
+          <img src="college_logo/ST. JOSEPH'S DEGREE & PG COLLEGE.jpeg" alt="ST. JOSEPH'S DEGREE & PG COLLEGE" class="college-logo">
+          <span class="college-name">ST. JOSEPH'S DEGREE & PG COLLEGE</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/kamran-askari-297486299/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Sankaranarayanan.webp" alt="Sankaranarayanan.M">
+        </div>
+        <h3>Sankaranarayanan.M</h3>
+        <div class="college-info">
+          <img src="college_logo/PSN engeneering college.jpeg" alt="PSN engeneering college" class="college-logo">
+          <span class="college-name">PSN Engineering College</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/sankara-narayanan-5021852a3" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Mohammed Aqeel .jpg" alt="Mohammed Aqeel khan">
+        </div>
+        <h3>Mohammed Aqeel khan</h3>
+        <div class="college-info">
+          <img src="college_logo/Nawab shah alam khan College of engineering and technology.jpg" alt="Nawab shah alam khan College of engineering and technology" class="college-logo">
+          <span class="college-name">Nawab shah alam khan College of engineering and technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/aqeel2530" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Adhil M.jpg" alt="Adhil M">
+        </div>
+        <h3>Adhil M</h3>
+        <div class="college-info">
+          <img src="college_logo/K.S.Rangasamy College of Technology.jpg" alt="K.S.Rangasamy College of Technology" class="college-logo">
+          <span class="college-name">K.S.Rangasamy College of Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/adhil-m-60761b37b" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Duplicated set for seamless scrolling -->
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Shreya Yadav.jpg" alt="Shreya Yadav">
+        </div>
+        <h3>Shreya Yadav</h3>
+        <div class="college-info">
+          <img src="college_logo/Jaypee institute of information technology.jpg" alt="Jaypee Institute of Information Technology" class="college-logo">
+          <span class="college-name">Jaypee Institute of Information Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/shreya-yadav-/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/KOMMA NITHYANANDHA REDDY.jpg" alt="Komma Nithyanandha Reddy">
+        </div>
+        <h3>Komma Nithyanandha Reddy</h3>
+        <div class="college-info">
+          <img src="college_logo/KL university.jpg" alt="KL University" class="college-logo">
+          <span class="college-name">KL University</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/nandhareddy/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Meera Padala.jpeg" alt="Meera Padala">
+        </div>
+        <h3>Meera Padala</h3>
+        <div class="college-info">
+          <img src="college_logo/Geethanjali college of engineering and technology.jpeg" alt="Geethanjali College of Engineering and Technology" class="college-logo">
+          <span class="college-name">Geethanjali College of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/meera-padala-bab86128a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Rani.jpeg" alt="Rani">
+        </div>
+        <h3>Rani</h3>
+        <div class="college-info">
+          <img src="college_logo/Brilliant institute of engineering and technology.jpeg" alt="Brilliant Institute of Engineering and Technology" class="college-logo">
+          <span class="college-name">Brilliant Institute of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/rani-edgar-317031301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Swapanth Kumar.jpeg" alt="Swapanth Kumar">
+        </div>
+        <h3>Swapanth Kumar</h3>
+        <div class="college-info">
+          <img src="college_logo/Brilliant institute of engineering and technology.jpeg" alt="Brilliant Institute of Engineering and Technology" class="college-logo">
+          <span class="college-name">Brilliant Institute of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/akarapu-swapanth-270b32347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Gayathri Ravula.jpg" alt="Gayathri Ravula">
+        </div>
+        <h3>Gayathri Ravula</h3>
+        <div class="college-info">
+          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
+          <span class="college-name">Pallavi Engineering College</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/gayathri-ravula-31a840339" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Agulla prasanna.jpeg" alt="Agulla prasanna">
+        </div>
+        <h3>Agulla Prasanna</h3>
+        <div class="college-info">
+          <img src="college_logo/Geethanjali college of engineering and technology.jpeg" alt="Geethanjali college of engineering and technology" class="college-logo">
+          <span class="college-name">Geethanjali college of engineering and technologya</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/agulla-prasanna-011135301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Srilekha Miryala.jpeg" alt="Srilekha Miryala">
+        </div>
+        <h3>Srilekha Miryala</h3>
+        <div class="college-info">
+          <img src="college_logo/Avanthi Institute Of Engineering and Technology.png" alt="Avanthi Institute Of Engineering and Technology" class="college-logo">
+          <span class="college-name">Avanthi Institute Of Engineering and Technology</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/srilekha-miryala-0b32822bb" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- new people -->
+      <!-- new people -->
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Kamran Askari.jpeg" alt="Kamran Askari">
+        </div>
+        <h3>Kamran Askari</h3>
+        <div class="college-info">
+          <img src="college_logo/ST. JOSEPH'S DEGREE & PG COLLEGE.jpeg" alt="ST. JOSEPH'S DEGREE & PG COLLEGE" class="college-logo">
+          <span class="college-name">ST. JOSEPH'S DEGREE & PG COLLEGE</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/kamran-askari-297486299/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Sankaranarayanan.webp" alt="Sankaranarayanan.M">
+        </div>
+        <h3>Sankaranarayanan.M</h3>
+        <div class="college-info">
+          <img src="college_logo/PSN engeneering college.jpeg" alt="PSN engeneering college" class="college-logo">
+          <span class="college-name">PSN Engineering College</span>
+        </div>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/sankara-narayanan-5021852a3" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Mohammed Aqeel khan.jpg" alt="Mohammed Aqeel khan">
+        </div>
+        <h3>Mohammed Aqeel khan</h3>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/aqeel2530" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="camp-amp/Mohammed Aqeel khan.jpg" alt="Mohammed Aqeel khan">
+        </div>
+        <h3>Mohammed Aqeel khan</h3>
+        <p>Campus Ambassador</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/aqeel2530" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </div>
+    <div class="ambassador">
+      <div class="ambassador-img">
+        <img src="camp-amp/Adhil M.jpg" alt="Adhil M">
+      </div>
+      <h3>Adhil M</h3>
+      <p>Campus Ambassador</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/adhil-m-60761b37b" class="social-btn"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Event Gallery Section START -->
+<section id="event-gallery" style="background:#fff;padding:60px 0 40px 0;width:100%;">
+  <h2 style="text-align:center;font-size:2.2rem;font-weight:700;color:#1c2e40;margin-bottom:8px;">Event Gallery</h2>
+  <p style="text-align:center;color:#666;font-size:1.1rem;margin-bottom:32px;">Capturing moments that inspire and connect our community.</p>
+  <div class="event-gallery-carousel-wrapper">
+    <div class="event-gallery-carousel" id="eventGalleryCarousel">
+      <img src="events/1.jpeg" alt="Event 1" class="event-gallery-img" />
+      <img src="events/2.jpeg" alt="Event 2" class="event-gallery-img" />
+      <img src="events/3.jpeg" alt="Event 3" class="event-gallery-img" />
+      <img src="events/4.jpeg" alt="Event 4" class="event-gallery-img" />
+      <img src="events/5.jpeg" alt="Event 5" class="event-gallery-img" />
+      <img src="events/6.jpeg" alt="Event 6" class="event-gallery-img" />
+      <img src="events/7.jpeg" alt="Event 7" class="event-gallery-img" />
+      <img src="events/8.jpeg" alt="Event 8" class="event-gallery-img" />
+      <img src="events/9.jpeg" alt="Event 9" class="event-gallery-img" />
+      <img src="events/11.jpeg" alt="Event 10" class="event-gallery-img" />
+      <img src="events/12.jpeg" alt="Event 11" class="event-gallery-img" />
+      <img src="events/13.jpeg" alt="Event 12" class="event-gallery-img" />
+      <img src="events/14.jpeg" alt="Event 13" class="event-gallery-img" />
+      <img src="events/15.jpeg" alt="Event 14" class="event-gallery-img" />
+    </div>
+  </div>
+</section>
+<style>
+.event-gallery-carousel-wrapper {
+  width: calc(320px * 2 + 24px); /* show exactly 2 images (2 widths + gap) */
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  padding: 0 0 10px 0;
+}
+.event-gallery-carousel {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  transition: transform 1.2s ease-in-out;
+  will-change: transform;
+}
+.event-gallery-img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: #f7f7f7;
+  flex-shrink: 0;
+  border: 2px solid #fff;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.event-gallery-img:hover {
+  box-shadow: 0 6px 24px rgba(255,111,0,0.13);
+  transform: scale(1.04);
+}
+@media (max-width: 700px) {
+  .event-gallery-img { width: 220px; height: 140px; }
+  /* Adjust wrapper to show 1 smaller image */
+  .event-gallery-carousel-wrapper { width: 220px; max-width: 100%; }
+  .event-gallery-carousel { gap: 12px; }
+}
+</style>
+<script>
+// Event Gallery Carousel Auto-scroll
+(function() {
+  const carousel = document.getElementById('eventGalleryCarousel');
+  if (!carousel) return;
+  const images = Array.from(carousel.children);
+  // Duplicate originals for seamless looping
+  images.forEach(img => carousel.appendChild(img.cloneNode(true)));
+
+  const isMobile = window.innerWidth <= 700;
+  const step = isMobile ? 1 : 2;
+  const gap = isMobile ? 12 : 24;
+  const imgWidth = images[0].offsetWidth;
+  const slideDistance = imgWidth + gap;
+
+  let current = 0;
+  const total = images.length; // original count only
+
+  function showImage(idx) {
+    carousel.style.transform = `translateX(-${idx * slideDistance}px)`;
+  }
+
+  const interval = setInterval(() => {
+    current += step;
+    showImage(current);
+    if (current >= total) {
+      // When we reach or exceed the original set, reset seamlessly
+      setTimeout(() => {
+        carousel.style.transition = 'none';
+        showImage(0);
+        current = 0;
+        // Force reflow to re-enable transition
+        void carousel.offsetWidth;
+        carousel.style.transition = '';
+      }, 1200);
+    }
+  }, 3200);
+})();
+</script>
+<!-- Event Gallery Section END -->
+<!-- Community Stats Section -->
+<section class="community-stats-section">
+  <h2 class="community-title">Our Growing Community</h2>
+  <div class="community-stats-container">
+    <div class="community-stat-card">
+      <div class="community-stat-icon">👥</div>
+      <div class="community-stat-number" data-target="3500">0</div>
+      <div class="community-stat-label">Community Members</div>
+    </div>
+    <div class="community-stat-card">
+      <div class="community-stat-icon">🎓</div>
+      <div class="community-stat-number" data-target="1000">0</div>
+      <div class="community-stat-label">Internships Offered</div>
+    </div>
+    <div class="community-stat-card">
+      <div class="community-stat-icon">📅</div>
+      <div class="community-stat-number" data-target="30">0</div>
+      <div class="community-stat-label">Events Conducted</div>
+    </div>
+  </div>
+</section>
+
+<style>
+.community-stats-section {
+  background: transparent;
+  padding: 60px 0 40px 0;
+  width: 100%;
+}
+.community-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1c2e40;
+  margin-bottom: 32px;
+  letter-spacing: -1px;
+}
+.community-stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.community-stat-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 36px 48px 32px 48px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+  border: 1.5px solid #f3f3f3;
+}
+.community-stat-card:hover {
+  box-shadow: 0 6px 24px rgba(255,111,0,0.10);
+  border-color: #ff6f00;
+}
+.community-stat-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: #ff6f00;
+}
+.community-stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ff6f00;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 2px 16px rgba(255,111,0,0.18), 0 1px 0 #fff;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+  background: linear-gradient(135deg, #fffbe6 70%, transparent 100%);
+  border-radius: 18px;
+  padding: 6px 14px;
+}
+.community-stat-number.animated {
+  animation: stat-pop 0.5s cubic-bezier(.4,2,.6,1);
+  transform: scale(1.15);
+  box-shadow: 0 6px 32px rgba(255,111,0,0.18);
+}
+@keyframes stat-pop {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.22); }
+  100% { transform: scale(1.15); }
+}
+.community-stat-plus {
+  font-size: 1.3rem;
+  vertical-align: super;
+  color: #ff6f00;
+  margin-left: 1px;
+  font-weight: 700;
+}
+.community-stat-label {
+  font-size: 1.1rem;
+  color: #1c2e40;
+  font-weight: 500;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .community-stats-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .community-stat-card {
+    min-width: 220px;
+    padding: 28px 20px 24px 20px;
+  }
+}
+</style>
+<script>
+// Animated count-up for community stats
+function animateCountUp(el, target, duration = 1800) {
+  let start = 0;
+  let startTime = null;
+  function animateStep(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    el.textContent = Math.floor(progress * (target - start) + start).toLocaleString();
+    if (progress < 1) {
+      requestAnimationFrame(animateStep);
+    } else {
+      el.innerHTML = target.toLocaleString() + '<span class="community-stat-plus">+</span>';
+      el.classList.add('animated');
+      setTimeout(() => el.classList.remove('animated'), 600);
+    }
+  }
+  requestAnimationFrame(animateStep);
+}
+
+function handleStatsAnimation() {
+  const stats = document.querySelectorAll('.community-stat-number');
+  let triggered = false;
+  function onScroll() {
+    if (triggered) return;
+    const section = document.querySelector('.community-stats-section');
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'), 10);
+        animateCountUp(stat, target);
+      });
+      triggered = true;
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // in case already in view
+}
+window.addEventListener('DOMContentLoaded', handleStatsAnimation);
+</script>
+<section id="events" class="hero">
+  <h2>Upcoming Events & Webinars</h2>
+  <p>Join sessions with industry leaders. Stay ahead with TaskVeda.</p>
+  <a href="mailto:info@taskveda.in">Get Details</a>
+</section>
+<!-- Team Section START -->
+<section id="team" class="team-section">
+  <h2 class="team-title">Meet Our Team</h2>
+  <p class="team-subtitle">The passionate individuals behind TaskVeda.</p>
+  <h3 class="team-heading">Founders</h3>
+  <div class="team-container">
+    <div class="team-card">
+      <div class="team-img">
+        <img src="team/Rohit Gallipalli.jpeg" alt="Rohit Gallipalli">
+      </div>
+      <h4>Rohit Gallipalli</h4>
+      <p class="team-role">Founder & CEO</p>
+      <p class="team-desc">Rohit Gallipalli is the visionary behind TaskVeda — a student-first platform built to bridge the gap between learning and real-world experience. With a deep understanding of student struggles, he launched TaskVeda to provide meaningful internships, day jobs, and freelancing gigs that build both skills and confidence.<br/><br/>Under his leadership, TaskVeda has empowered over 3,500 students through internships and 30+ events, creating a fast-growing ecosystem of action-oriented learners across India.</p>
+      <div class="team-social">
+        <a href="https://www.linkedin.com/in/rohit-gallipalli-ab38b6286/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        <a href="mailto:info@taskveda.in" class="social-btn"><i class="fa fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Core Team Carousel -->
+  <h3 class="team-heading">Core Team</h3>
+  <div class="ambassador-carousel core-carousel">
+    <div class="ambassador-container">
+      <!-- Core team members -->
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Uriti Hrushikesh Karthik.jpeg" alt="Uriti Hrushikesh Karthik">
+        </div>
+        <h3>Uriti Hrushikesh Karthik</h3>
+        <p>Lead Trainer</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/uriti-hrushikesh-karthik" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Tadipetti Pavani.jpeg" alt="Tadipetti Pavani">
+        </div>
+        <h3>Tadipetti Pavani</h3>
+        <p>Mentor & Trainer</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/pavanitadipetti" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Jaspreet Singh.jpeg" alt="Jaspreet Singh">
+        </div>
+        <h3>Jaspreet Singh</h3>
+        <p>Ambassador Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/jaspreet-singh-596633224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Abdul Rahman.png" alt="Abdul Rahman">
+        </div>
+        <h3>Abdul Rahman</h3>
+        <p>Partnerships Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/abdul-rahman-a3121ar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Akshad Sukhia.jpeg" alt="Akshad Sukhia">
+        </div>
+        <h3>Akshad Sukhia</h3>
+        <p>Operations Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/akshad-sukhia/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/A. Mohan Varshith.jpeg" alt="A. Mohan Varshith">
+        </div>
+        <h3>A. Mohan Varshith</h3>
+        <p>Event Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/mohan-varshith-90a262353/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Md Mustaq.jpeg" alt="Md Mustaq">
+        </div>
+        <h3>Md Mustaq</h3>
+        <p>Community Coordinator</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/md-mustaq-424190327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Gayathri Ravula.jpg" alt="Gayathri Ravula">
+        </div>
+        <h3>Gayathri Ravula</h3>
+        <p>Event Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/gayathri-ravula-31a840339" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Kafia Kauser.jpg" alt="Kafia Kauser">
+        </div>
+        <h3>Kafia Kauser</h3>
+        <p>Marketing Head</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/kafia-kauser" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Bhavya Dhulipalla.JPG" alt="Bhavya Dhulipalla">
+        </div>
+        <h3>Bhavya Dhulipalla</h3>
+        <p>Content Creator</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/bhavya-dhulipala-8986ba2a2" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <!-- Duplicate set for seamless scroll -->
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Uriti Hrushikesh Karthik.jpeg" alt="Uriti Hrushikesh Karthik">
+        </div>
+        <h3>Uriti Hrushikesh Karthik</h3>
+        <p>Lead Trainer</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/uriti-hrushikesh-karthik" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Tadipetti Pavani.jpeg" alt="Tadipetti Pavani">
+        </div>
+        <h3>Tadipetti Pavani</h3>
+        <p>Mentor & Trainer</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/pavanitadipetti" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Jaspreet Singh.jpeg" alt="Jaspreet Singh">
+        </div>
+        <h3>Jaspreet Singh</h3>
+        <p>Ambassador Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/jaspreet-singh-596633224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Abdul Rahman.png" alt="Abdul Rahman">
+        </div>
+        <h3>Abdul Rahman</h3>
+        <p>Partnerships Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/abdul-rahman-a3121ar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Akshad Sukhia.jpeg" alt="Akshad Sukhia">
+        </div>
+        <h3>Akshad Sukhia</h3>
+        <p>Operations Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/akshad-sukhia/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/A. Mohan Varshith.jpeg" alt="A. Mohan Varshith">
+        </div>
+        <h3>A. Mohan Varshith</h3>
+        <p>Event Manager</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/mohan-varshith-90a262353/" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Md Mustaq.jpeg" alt="Md Mustaq">
+        </div>
+        <h3>Md Mustaq</h3>
+        <p>Community Coordinator</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/md-mustaq-424190327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Gayathri Ravula.jpg" alt="Gayathri Ravula">
+        </div>
+        <h3>Gayathri Ravula</h3>
+        <p>Event Manager</p>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Kafia Kauser.jpg" alt="Kafia Kauser">
+        </div>
+        <h3>Kafia Kauser</h3>
+        <p>Marketing Head</p>
+      </div>
+      <div class="ambassador">
+        <div class="ambassador-img">
+          <img src="team/Bhavya Dhulipalla.JPG" alt="Bhavya Dhulipalla">
+        </div>
+        <h3>Bhavya Dhulipalla</h3>
+        <p>Content Creator</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/bhavya-dhulipala-8986ba2a2" class="social-btn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Core Team Carousel -->
+</section>
+<style>
+.team-section {
+  background: transparent;
+  padding: 60px 0 40px 0;
+  width: 100%;
+}
+.team-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1c2e40;
+  margin-bottom: 8px;
+}
+.team-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+}
+.team-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1c2e40;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.team-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 30px;
+  max-width: 520px;
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid #f3f3f3;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.team-card:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+.team-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 3px solid #ff6f00;
+}
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1c2e40;
+  margin-bottom: 4px;
+}
+.team-role {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+.team-desc {
+  text-align: center;
+  color: #1c2e40;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+.team-social {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+}
+@media (max-width: 600px) {
+  .team-card {
+    max-width: 100%;
+    padding: 20px;
+  }
+  .team-container {
+    padding: 0 20px;
+  }
+}
+</style>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+  <p class="faq-subtitle">Find answers to common questions about TaskVeda.</p>
+  
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What is TaskVeda?</h3>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>TaskVeda is a versatile platform that provides day jobs, internships, and freelancing opportunities to students and young professionals. Our mission is to bridge the gap between learning and earning by offering real-world, skill-based experiences.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Who can use TaskVeda?</h3>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>TaskVeda is open to students, fresh graduates, freelancers, and job seekers from all backgrounds. Whether you're just starting out or looking to enhance your skills, TaskVeda has opportunities tailored for you.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What types of internships does TaskVeda offer?</h3>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We offer beginner-friendly, project-based internships in fields like Python, Web Development, Cloud Computing, Java Full Stack, and more. Each program includes mentorship, hands-on tasks, and a certificate upon completion.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Does TaskVeda provide freelancing opportunities?</h3>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes. Apart from internships, TaskVeda connects skilled individuals with real-time freelance projects in tech, marketing, design, and content writing — helping them earn while they learn.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>How do I get started with TaskVeda?</h3>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Simply visit www.taskveda.in, sign up with your basic details, and start exploring available opportunities. Once registered, you can apply for internships, participate in events, or join freelance projects.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What makes TaskVeda unique?</h3>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Unlike other platforms, TaskVeda is community-driven, beginner-friendly, and action-oriented. We focus on career acceleration through hands-on learning, real projects, and consistent support — all within one ecosystem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-section {
+  background: transparent;
+  padding: 80px 20px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-section::before,
+.faq-section::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
+  z-index: 0;
+}
+
+.faq-section::before {
+  top: -100px;
+  left: -100px;
+}
+
+.faq-section::after {
+  bottom: -100px;
+  right: -100px;
+  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1c2e40;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.faq-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  margin-bottom: 0;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.faq-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff6f00, #ff9500);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.faq-item.active {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.faq-item.active::before {
+  opacity: 1;
+}
+
+.faq-question {
+  background: transparent;
+  padding: 25px 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.faq-question h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1c2e40;
+  margin: 0;
+  transition: color 0.3s ease;
+  padding-right: 40px;
+  line-height: 1.4;
+}
+
+.faq-item:hover .faq-question h3 {
+  color: #ff6f00;
+}
+
+.faq-toggle {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #ff6f00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-toggle {
+  background: #ff6f00;
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  background: transparent;
+  padding: 0 30px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+  padding-bottom: 25px;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 20px 0;
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.02rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 60px 15px;
+  }
+  
+  .faq-title {
+    font-size: 2rem;
+  }
+  
+  .faq-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+  
+  .faq-container {
+    padding: 10px;
+  }
+  
+  .faq-question {
+    padding: 20px;
+  }
+  
+  .faq-question h3 {
+    font-size: 1.05rem;
+    padding-right: 30px;
+  }
+  
+  .faq-answer {
+    padding: 0 20px;
+  }
+  
+  .faq-answer p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Add animation for opening/closing */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-item.active .faq-answer p {
+  animation: slideDown 0.4s ease forwards;
+}
+</style>
+
+<script>
+// Enhanced FAQ Toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all other items with smooth animation
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+          const otherAnswer = otherItem.querySelector('.faq-answer');
+          otherAnswer.style.maxHeight = '0';
+          otherAnswer.style.opacity = '0';
+        }
+      });
+      
+      // Toggle current item with smooth animation
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.opacity = '1';
+      } else {
+        item.classList.remove('active');
+        answer.style.maxHeight = '0';
+        answer.style.opacity = '0';
+      }
+    });
+  });
+  
+  // Add hover effect for better interactivity
+  faqItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      if (!item.classList.contains('active')) {
+        item.style.transform = 'translateY(-2px)';
+      }
+    });
+    
+    item.addEventListener('mouseleave', () => {
+      if (!item.classList.contains('active')) {
+        item.style.transform = 'translateY(0)';
+      }
+    });
+  });
+});
+</script>
+
+<!-- Enhanced Footer Section START -->
+<section class="tv-footer">
+  <div class="tv-footer-container">
+    <!-- Brand & Socials -->
+    <div class="tv-footer-brand">
+      <div class="tv-brand-row">
+        <img src="Taskveda_logo_footer.png" alt="TaskVeda Logo" class="tv-logo" />
+        <span class="tv-brand-name">TaskVeda</span>
+      </div>
+      <p class="tv-tagline">Connecting students, empowering futures. Join our vibrant community today!</p>
+      <div class="tv-social-icons">
+        <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank" aria-label="WhatsApp" class="fa fa-whatsapp"></a>
+        <a href="https://www.instagram.com/taskveda/" target="_blank" aria-label="Instagram" class="fa fa-instagram"></a>
+        <a href="https://www.linkedin.com/company/taskveda/" target="_blank" aria-label="LinkedIn" class="fa fa-linkedin"></a>
+        <a href="https://www.youtube.com/@taskveda" target="_blank" aria-label="YouTube" class="fa fa-youtube-play"></a>
+      </div>
+    </div>
+    <!-- Contact -->
+    <div class="tv-footer-contact">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:info@taskveda.in" style="color:orange;">info@taskveda.in</a></p>
+      <p>WhatsApp: <a href="https://wa.me/919290610568" target="_blank" style="color:orange;">+91 9290610568</a></p>
+    </div>
+  </div>
+</section>
+<!-- Enhanced Footer Section END -->
+<style>
+.tv-footer {
+  background: #0f1624 !important;
+  color: #f1f1f1;
+  padding: 60px 20px;
+}
+
+.tv-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.tv-logo {
+  height: 50px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+}
+
+.tv-tagline {
+  max-width: 320px;
+  font-size: 0.95rem;
+  margin: 10px 0 20px;
+  color: #d1d7e0;
+}
+
+.tv-social-icons {
+  display: flex;
+  gap: 18px;
+}
+
+.tv-social-icons a {
+  color: #d1d7e0;
+  font-size: 1.5rem;
+  transition: opacity 0.3s ease;
+  text-decoration: none !important;
+}
+
+.tv-social-icons a:hover {
+  color: #ff6f00;
+  text-decoration: none !important;
+}
+
+/* Brand row styles */
+.tv-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.tv-brand-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* footer bar update */
+footer {
+  background: #0f1624 !important;
+  color: #ffffff !important;
+  border-top: none;
+}
+
+footer a { color:#ffffff; text-decoration:underline; }
+</style>
+<footer>
+  <p>© 2024 TaskVeda. All rights reserved. TaskVeda is a registered entity under MSME, Government of India.</p>
+</footer>
+<script>
+const text = "Empowering Students by Day-Jobs, Internships & Freelancing";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 50);
+  }
+}
+window.onload = type;
+</script>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+</script>
+<script>
+// Popup Logic
+function setupPopup(cardId, popupId) {
+    const card = document.getElementById(cardId);
+    const popup = document.getElementById(popupId);
+    const closeBtn = popup.querySelector('.close-btn');
+
+    card.addEventListener('click', (e) => {
+        e.preventDefault();
+        popup.classList.add('show');
+    });
+
+    function closePopup() {
+        popup.classList.remove('show');
+    }
+
+    closeBtn.addEventListener('click', closePopup);
+
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape" && popup.classList.contains('show')) {
+            closePopup();
+        }
+    });
+}
+
+setupPopup('day-job-card', 'day-job-popup');
+setupPopup('freelancing', 'freelancing-popup');
+setupPopup('freelancing-nav-link', 'freelancing-popup');
+setupPopup('freelancing-mobile-nav-link', 'freelancing-popup');
+</script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="FkbQQXJlHqgmS3tuc7c64";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>
