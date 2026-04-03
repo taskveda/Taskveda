@@ -2021,14 +2021,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script>
-(function(){
-  if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-    var script = document.createElement("script");
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.id = "FkBQQXJIHqgmS3tuc7c64";
-    document.body.appendChild(script);
-  }
-})();
+window.chatbase = window.chatbase || function() {
+  (window.chatbase.q = window.chatbase.q || []).push(arguments);
+};
+
+window.chatbase("init", {
+  chatbotId: "FkBQQXJIHqgmS3tuc7c64"
+});
+
+var script = document.createElement("script");
+script.src = "https://www.chatbase.co/embed.min.js";
+script.defer = true;
+document.body.appendChild(script);
 </script>
 </body>
 </html>
