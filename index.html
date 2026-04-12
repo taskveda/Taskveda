@@ -498,17 +498,9 @@ footer::before, footer::after,
   <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Community</a>
 </div>
 <section class="hero" id="apply">
-<h1 style="font-size:42px; color:#ff6600;">
-  <span id="typing-text"></span>
-</h1>
-<p style="font-size:18px; margin-top:15px;">
-  Gain real experience through internships, freelancing, and day job opportunities with TaskVeda.
-</p>
-<a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank"
-   style="padding:12px 25px; background:#ff6600; color:white; border-radius:25px; text-decoration:none;">
-   Join Community
-</a>
-</div>
+  <h1 id="typing"></h1>
+  <p>Connecting ambitious students to opportunities that build careers—while still in college.</p>
+  <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Join Community</a>
 </section>
 <section id="features" class="features">
   <div class="card" id="day-job-card">
@@ -1872,12 +1864,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="tv-footer-contact">
       <h3>Contact</h3>
       <p>Email: <a href="mailto:info@taskveda.in" style="color:orange;">info@taskveda.in</a></p>
-<p>WhatsApp: 
-  <a href="https://wa.me/919966367583" target="_blank" style="color:orange;">
-    +91 9966367583
-  </a>
-</p>   
-</div>
+      <p>WhatsApp: <a href="https://wa.me/919290610568" target="_blank" style="color:orange;">+91 9290610568</a></p>
+    </div>
   </div>
 </section>
 <!-- Enhanced Footer Section END -->
@@ -1989,58 +1977,23 @@ function setupPopup(cardId, popupId) {
     popup.addEventListener('click', (e) => {
         if (e.target === popup) {
             closePopup();
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-const texts = [
-  "From Learning to Earning",
-  "Before You Graduate",
-  "Start Internships with TaskVeda",
-  "Earn Through Freelancing"
-];
-
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
-
-function type() {
-  if (count === texts.length) count = 0;
-
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
-
-  document.getElementById("typing-text").textContent = letter;
-
-  if (letter.length === currentText.length) {
-    setTimeout(erase, 1500);
-  } else {
-    setTimeout(type, 60);
-  }
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape" && popup.classList.contains('show')) {
+            closePopup();
+        }
+    });
 }
 
-function erase() {
-  letter = currentText.slice(0, --index);
-  document.getElementById("typing-text").textContent = letter;
-
-  if (letter.length === 0) {
-    count++;
-    setTimeout(type, 500);
-  } else {
-    setTimeout(erase, 40);
-  }
-}
-
-type();
-
-});
+setupPopup('day-job-card', 'day-job-popup');
+setupPopup('freelancing', 'freelancing-popup');
+setupPopup('freelancing-nav-link', 'freelancing-popup');
+setupPopup('freelancing-mobile-nav-link', 'freelancing-popup');
 </script>
-  (function(){
-  var script = document.createElement("script");
-  script.src = "https://www.chatbase.co/embed.min.js";
-  script.id = "FkBQQXJIHqgmS3tuc7c64";  /* your id */
-  document.body.appendChild(script);
-})();
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="FkbQQXJlHqgmS3tuc7c64";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 </body>
 </html>
