@@ -1989,42 +1989,30 @@ function setupPopup(cardId, popupId) {
     popup.addEventListener('click', (e) => {
         if (e.target === popup) {
             closePopup();
-        }
-    });
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape" && popup.classList.contains('show')) {
-            closePopup();
-        }
-    });
-}
-setupPopup('day-job-card', 'day-job-popup');
-setupPopup('freelancing', 'freelancing-popup');
-setupPopup('freelancing-nav-link', 'freelancing-popup');
-setupPopup('freelancing-mobile-nav-link', 'freelancing-popup');
-</script>
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const el = document.getElementById("typing-text");
+  if (!el) return;
+
+  const text = el.innerText;
+  el.innerText = "";
+
   let index = 0;
+
   function typeEffect() {
-const el = document.getElementById("typing-text");
-if (!el) return;
-
-const text = el.innerText;   // ✅ store once
-el.innerText = "";
-
-let index = 0;
-
-function typeEffect() {
-  if (index < text.length) {
-    el.innerHTML += text.charAt(index);
-    index++;
-    setTimeout(typeEffect, 40);
+    if (index < text.length) {
+      el.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 40);
+    }
   }
-}
 
-typeEffect();
+  typeEffect();
+
+});
 </script>
-(function(){
+  (function(){
   var script = document.createElement("script");
   script.src = "https://www.chatbase.co/embed.min.js";
   script.id = "FkBQQXJIHqgmS3tuc7c64";  /* your id */
