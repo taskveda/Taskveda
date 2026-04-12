@@ -1992,23 +1992,46 @@ function setupPopup(cardId, popupId) {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const el = document.getElementById("typing-text");
-  if (!el) return;
+const texts = [
+  "From Learning to Earning",
+  "Before You Graduate",
+  "Start Internships with TaskVeda",
+  "Earn Through Freelancing"
+];
 
-  const text = el.innerText;
-  el.innerText = "";
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
 
-  let index = 0;
+function type() {
+  if (count === texts.length) count = 0;
 
-  function typeEffect() {
-    if (index < text.length) {
-      el.innerHTML += text.charAt(index);
-      index++;
-      setTimeout(typeEffect, 40);
-    }
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+
+  document.getElementById("typing-text").textContent = letter;
+
+  if (letter.length === currentText.length) {
+    setTimeout(erase, 1500);
+  } else {
+    setTimeout(type, 60);
   }
+}
 
-  typeEffect();
+function erase() {
+  letter = currentText.slice(0, --index);
+  document.getElementById("typing-text").textContent = letter;
+
+  if (letter.length === 0) {
+    count++;
+    setTimeout(type, 500);
+  } else {
+    setTimeout(erase, 40);
+  }
+}
+
+type();
 
 });
 </script>
