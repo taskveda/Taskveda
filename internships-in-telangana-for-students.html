@@ -190,7 +190,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .breadcrumb span{margin:0 .4rem}
  
 /* ─── LAYOUT ──────────────────────────────────────────── */
-.container{max-width:1180px;margin:0 auto;padding:0 5%}
+.container{
+max-width:1280px;
+margin:auto;
+padding:0 24px;
+}
  
 /* ─── HERO ────────────────────────────────────────────── */
 .hero{padding:7rem 5% 6rem;text-align:center;background:radial-gradient(ellipse 70% 60% at 75% 40%,rgba(255,107,26,.1) 0%,transparent 65%),radial-gradient(ellipse 50% 50% at 20% 80%,rgba(255,200,150,.12) 0%,transparent 55%),var(--bg)}
@@ -439,7 +443,6 @@ footer a:hover{color:var(--orange)}
 
   </nav>
 </header>
-
 <!-- BREADCRUMB NAV -->
 <nav class="breadcrumb" aria-label="Breadcrumb">
 
@@ -455,12 +458,12 @@ footer a:hover{color:var(--orange)}
 
   <span>›</span>
 
-  <a href="https://www.taskveda.in/internships-in-telangana-for-students.html">
+ <a href="#"
+   onclick="location.reload(); return false;">
     Internships in Telangana
-  </a>
+</a>
 
 </nav>
-
 <main id="main-content">
   
 <!-- ═══════════════ HERO ═══════════════ -->
@@ -624,6 +627,9 @@ Choose from multiple internship domains designed for engineering, degree, diplom
 <div class="tech-pill"><span class="tech-dot" style="background:#64748b"></span>Software Development Internship</div>
 
 </div>
+
+</div>      
+</section>
 <!-- ═══════════════ STUDENT EXPERIENCES ═══════════════ -->
 <section class="white-bg" aria-labelledby="reviews-heading">
 
@@ -1157,11 +1163,9 @@ TaskVeda
 </div>
 
 <nav>
-
-<a href="/internships.html">
-All Programs
-</a>
-
+ <a href="https://www.taskveda.in/internships.html">
+    All Programs
+  </a>
 </nav>
 
 </footer>
