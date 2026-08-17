@@ -1,2067 +1,852 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TaskVeda – Internships, Freelancing & Jobs for Students in India</title>
-  <meta name="description" content="TaskVeda helps students find internships, freelancing opportunities, and day jobs while learning real skills.">
-<meta name="keywords" content="internships for students, student jobs India, freelancing for beginners, skill development">
-<meta name="robots" content="index, follow">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" href="web-app-manifest-512x512.ico">
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body{
-  color:#1c2e40;
-  line-height:1.6;
-  background: linear-gradient(135deg, #fff 0%, #f8f9fa 50%, #fff 100%) fixed;
-  min-height: 100vh;
-}
-    header{
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  padding:20px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 2px 8px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-}
-    header img{height:50px;}
-    nav a{margin-left:15px;color:#1c2e40;text-decoration:none;font-weight:600;font-size:0.95rem;}
-    nav a:hover{color:#ff6f00;}
-
-    /* Hamburger & Mobile Menu Styles */
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;z-index:1100;margin-left:auto;}
-    .hamburger span{width:25px;height:3px;background:#1c2e40;border-radius:3px;transition:transform 0.3s,opacity 0.3s;}
-
-    .mobile-menu{position:fixed;top:0;right:-260px;width:240px;height:100vh;background:rgba(255, 255, 255, 0.7);backdrop-filter:blur(10px);box-shadow:-2px 0 8px rgba(0,0,0,0.1);padding:60px 25px 20px;display:flex;flex-direction:column;gap:22px;transition:right 0.3s ease;z-index:1500;background: transparent;backdrop-filter: blur(10px);}
-    .mobile-menu a{color:#1c2e40;font-weight:600;text-decoration:none;font-size:1rem;}
-    .mobile-menu .close-btn{position:absolute;top:15px;right:20px;font-size:2rem;text-decoration:none;color:#1c2e40;}
-    .mobile-menu.open{right:0;}
-
-    /* Responsive nav toggle */
-    @media(max-width:768px){
-      .desktop-nav{display:none;}
-      .hamburger{display:flex;}
-    }
-    .hero{
-  padding: 100px 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-}
-
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.hero::before {
-  top: -100px;
-  left: -100px;
-  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
-}
-
-.hero::after {
-  bottom: -100px;
-  right: -100px;
-  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
-}
-
-.hero h1, .hero h2, .hero p {
-  position: relative;
-  z-index: 1;
-}
-    .hero h1{font-size:3rem;color:#ff6f00;}
-    .hero p{font-size:1.2rem;max-width:600px;margin:20px auto;}
-    .hero a{background:#ff6f00;color:#fff;padding:15px 30px;border-radius:30px;font-size:1rem;text-decoration:none;display:inline-block;margin:10px;transition:background 0.3s;}
-    .hero a:hover{background:#00aaff;}
-    .features{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:80px 20px;position:relative;overflow:hidden;background:transparent;}
-
-.features::before,
-.features::after {
-  content: '';
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.features::before {
-  top: -100px;
-  left: -100px;
-  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
-}
-
-.features::after {
-  bottom: -100px;
-  right: -100px;
-  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
-}
-    .card{background:rgba(255, 255, 255, 0.8);color:#1c2e40;padding:30px;border-radius:10px;max-width:250px;text-align:center;cursor:pointer;transition:background 0.3s, color 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.05);text-decoration:none;}
-    .card:hover{background:#ff6f00;color:#fff;}
-    .card h3{margin-bottom:10px;}
-    .card p{font-size:0.95rem;}
-
-    /* Popup Styles */
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      backdrop-filter: blur(5px);
-    }
-
-    .popup-content {
-      background: #fff;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      text-align: center;
-      position: relative;
-      max-width: 400px;
-      width: 90%;
-      transform: scale(0.9) translateY(-20px);
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .popup-overlay.show {
-      display: flex;
-      opacity: 1;
-    }
-
-    .popup-overlay.show .popup-content {
-        transform: scale(1) translateY(0);
-    }
-
-    .popup-content .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 32px;
-      font-weight: bold;
-      color: #888;
-      cursor: pointer;
-      transition: color 0.2s, transform 0.2s;
-    }
-
-    .popup-content .close-btn:hover {
-      color: #ff6f00;
-      transform: rotate(90deg);
-    }
-
-    .popup-content p {
-        font-size: 1.1rem;
-        color: #1c2e40;
-        margin: 0;
-        line-height: 1.6;
-    }
-    footer{
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(221, 221, 221, 0.5);
-  text-align:center;
-  padding:40px 20px;
-  position:relative;
-  overflow:hidden;
-}
-
-footer::before,
-footer::after {
-  content: '';
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  z-index: 0;
-}
-
-footer::before {
-  top: -100px;
-  left: -100px;
-  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
-}
-
-footer::after {
-  bottom: -100px;
-  right: -100px;
-  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
-}
-
-footer p {
-  position: relative;
-  z-index: 1;
-}
-    footer a{color:#ff6f00;text-decoration:none;}
-    /* Font Awesome style for icons */
-    .fa {
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    .fa-linkedin:before { content: "\f0e1"; }
-    .fa-envelope:before { content: "\f0e0"; }
-    
-    /* Ambassador Carousel Styles */
-    .ambassador-carousel {
-      width: 100%;
-      max-width: 1200px;
-      margin: 40px auto 0;
-      overflow: hidden;
-      padding: 20px 0;
-      position: relative;
-    }
-    .ambassador-container {
-      display: flex;
-      gap: 30px;
-      padding: 10px;
-      min-width: max-content;
-      animation: scrollCarousel 40s linear infinite;
-      animation-play-state: running;
-    }
-    .ambassador-carousel:hover .ambassador-container {
-      animation-play-state: paused;
-    }
-    @keyframes scrollCarousel {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        /* This value is calculated based on the width of one set of ambassadors */
-        transform: translateX(calc(-230px * 7));
-      }
-    }
-    .ambassador {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 16px;
-      width: 200px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 250px;
-      justify-content: flex-start;
-    }
-    .ambassador:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    .ambassador-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 15px;
-      border: 3px solid #ff6f00;
-    }
-    .ambassador-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .ambassador h3 {
-      color: #1c2e40;
-      font-size: 1rem;
-      margin-bottom: 8px;
-      margin-top: 0;
-      width: 100%;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .college-info {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      margin-top: 8px;
-      width: 100%;
-      min-height: 25px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 5px;
-      border-radius: 5px;
-      border: none;
-    }
-    .college-logo {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid #ddd;
-    }
-    .college-name {
-      font-size: 0.75rem;
-      color: #666;
-      text-align: center;
-      line-height: 1.2;
-      font-weight: 500;
-    }
-    .ambassador p {
-      color: #ff6f00;
-      font-size: 0.85rem;
-      margin-bottom: 18px;
-      margin-top: 0;
-      width: 100%;
-      text-align: center;
-      /* Removed display: flex, align-items, justify-content for better alignment */
-      display: block;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      width: 100%;
-      margin-top: auto;
-    }
-    .social-btn {
-      background: #f0f0f0;
-      color: #1c2e40;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: background 0.3s, color 0.3s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      padding: 0;
-      line-height: 1;
-      overflow: hidden;
-    }
-    .social-btn i {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-    }
-    .social-btn:hover {
-      background: #ff6f00;
-      color: #fff;
-    }
-    
-    @media(max-width:768px){
-      nav a{margin:10px 10px 0 0;display:inline-block;}
-      .hero h1{font-size:2.2rem;}
-      .features{flex-direction:column;align-items:center;}
-      .ambassador-container {
-        padding: 10px 20px;
-      }
-      .ambassador {
-        width: 180px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskVeda | Job-Ready Programs, Internships & Certification Courses for Students</title>
+<meta name="description" content="Join TaskVeda's job-ready programs, internship opportunities, certification courses, AI training and career development programs for college students.">
+<meta name="keywords" content="internship program India, free internship with certificate, Python internship beginners, web development internship freshers, earn while learning India, internship Hyderabad students">
+<link rel="canonical" href="https://www.taskveda.in/">
+<link rel="icon" href="https://www.taskveda.in/favicon.ico">
+<meta property="og:title" content="TaskVeda | Job-Ready Programs, Internships & Certification Courses">
+<meta property="og:description" content="Join TaskVeda's job-ready programs, internship opportunities, certification courses, AI training and career development programs for college students.">
+<meta property="og:url" content="https://www.taskveda.in/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.taskveda.in/images/taskveda-og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TaskVeda","url":"https://www.taskveda.in","description":"Student internship programs and freelancing platform in India","address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Telangana","addressCountry":"IN"},"sameAs":["https://www.instagram.com/taskveda","https://www.linkedin.com/company/taskveda"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-  /* Custom Chatbase Icon */
-  #chatbase-bubble-button {
-    background: rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(15px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    color: #ff6f00 !important;
-    border-radius: 50% !important;
-    width: 60px !important;
-    height: 60px !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
-  }
-  #chatbase-bubble-button > svg {
-    display: none !important;
-  }
-  #chatbase-bubble-button::before {
-    content: "\f075"; /* Font Awesome chat icon */
-    font-family: FontAwesome;
-    font-size: 24px;
-    line-height: 60px;
-    text-align: center;
-    width: 100%;
-    display: block;
-  }
-
-  /* Liquid Glass Effect */
-  .chatbase-window {
-    background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 15px !important;
-  }
-  .chatbase-message {
-    background: rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(5px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-  }
-
+:root{--black:#0B0B0C;--ink:#1A1A1D;--gray-900:#222225;--gray-600:#63636B;--gray-400:#9A9AA2;--gray-200:#E7E7EA;--gray-100:#F2F2F4;--gray-50:#FAFAFB;--white:#FFFFFF;--orange:#FF6B2C;--orange-dark:#E85A1F;--orange-50:#FFF4EE;--orange-100:#FFE6D8;--green:#22d374;--amber:#f5a623;--red:#ff4757;--blue:#4dabf7;--radius-lg:20px;--radius-md:16px;--radius-sm:12px;--shadow-sm:0 1px 2px rgba(11,11,12,0.04),0 1px 1px rgba(11,11,12,0.03);--shadow-md:0 8px 24px rgba(11,11,12,0.06),0 2px 8px rgba(11,11,12,0.04);--shadow-lg:0 24px 64px rgba(11,11,12,0.10),0 4px 16px rgba(11,11,12,0.05);--shadow-orange:0 12px 32px rgba(255,107,44,0.28);--container:1200px;--ease:cubic-bezier(0.23,1,0.32,1)}
+[data-theme="dark"]{--black:#F5F2EE;--ink:#E8E5E0;--gray-900:#E0DDD8;--gray-600:#9999A8;--gray-400:#787880;--gray-200:#2A2A2E;--gray-100:#1F1F23;--gray-50:#18181B;--white:#111113;--shadow-sm:0 1px 2px rgba(0,0,0,0.2);--shadow-md:0 8px 24px rgba(0,0,0,0.3);--shadow-lg:0 24px 64px rgba(0,0,0,0.4);--shadow-orange:0 12px 32px rgba(255,107,44,0.2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.5;transition:background 0.4s var(--ease),color 0.3s}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:700;letter-spacing:-0.02em;color:var(--black)}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none}
+ul{list-style:none}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 32px}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:20px}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:100px;font-size:15px;font-weight:600;transition:transform 0.25s var(--ease),box-shadow 0.25s,background 0.2s;white-space:nowrap}
+.btn-primary{background:var(--orange);color:var(--white);box-shadow:var(--shadow-orange)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,107,44,0.36);background:var(--orange-dark)}
+.btn-secondary{background:var(--white);color:var(--black);border:1px solid var(--gray-200)}
+.btn-secondary:hover{border-color:var(--gray-400);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn-sm{padding:11px 20px;font-size:14px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.72);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(231,231,234,0.7);transition:background 0.4s}
+[data-theme="dark"] header{background:rgba(17,17,19,0.72);border-bottom:1px solid rgba(255,255,255,0.065)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:73px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{width:48px;height:48px;object-fit:contain}
+.logo-text{display:flex;flex-direction:column}
+.logo-title{font-family:'Plus Jakarta Sans';font-size:19px;font-weight:800;line-height:1;margin:0}
+.task{color:var(--black)}
+.veda{color:var(--orange)}
+.logo-sub{font-size:11px;color:var(--gray-400);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:16px}
+.nav-links a{font-size:15px;font-weight:600;color:var(--gray-600);white-space:nowrap;transition:color 0.2s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--black)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--gray-200);background:var(--gray-50);color:var(--ink);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:border-color 0.3s,transform 0.4s var(--ease),background 0.3s}
+.theme-btn:hover{border-color:var(--orange);background:var(--orange-50);transform:rotate(25deg) scale(1.1)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:500}
+.hamburger span{display:block;width:22px;height:2px;background:var(--black);border-radius:2px;transition:transform 0.3s var(--ease),opacity 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:385;opacity:0;pointer-events:none;transition:opacity 0.35s var(--ease)}
+.mobile-menu-overlay.open{opacity:1;pointer-events:all}
+.mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;background:var(--white);border-left:1px solid var(--gray-200);padding:90px 20px 24px;z-index:390;flex-direction:column;gap:4px;transform:translateX(100%);transition:transform 0.35s var(--ease);box-shadow:-12px 0 40px rgba(0,0,0,0.2);overflow-y:auto}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{padding:13px 14px;font-size:0.95rem;font-weight:500;color:var(--gray-600);border-radius:9px;transition:background 0.2s,color 0.2s;display:block}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--orange);background:var(--orange-50)}
+.mobile-menu-divider{height:1px;background:var(--gray-200);margin:10px 0}
+/* HERO */
+.hero{padding:88px 0 100px;overflow:hidden;position:relative;background:radial-gradient(ellipse 900px 500px at 85% 8%,var(--orange-50) 0%,rgba(255,244,238,0) 70%)}
+[data-theme="dark"] .hero{background:radial-gradient(ellipse 900px 500px at 85% 8%,rgba(255,107,44,0.08) 0%,transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1fr 0.92fr;gap:64px;align-items:center}
+.hero h1{font-size:54px;line-height:1.05;letter-spacing:-0.025em}
+.hero h1 .accent{color:var(--orange)}
+.hero p.lead{font-size:17px;color:var(--gray-600);margin-top:24px;max-width:480px;line-height:1.6}
+.hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.hero-social{display:flex;align-items:center;gap:14px;margin-top:44px}
+.avatar-stack{display:flex}
+.avatar-stack img{width:38px;height:38px;border-radius:50%;border:2.5px solid var(--white);object-fit:cover;margin-left:-10px;box-shadow:var(--shadow-sm)}
+.avatar-stack img:first-child{margin-left:0}
+.rating{font-size:14px;color:var(--gray-600);font-weight:500}
+.rating strong{color:var(--black)}
+.stars{color:var(--orange);letter-spacing:2px;font-size:14px}
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:460px}
+.hero-ring{position:absolute;width:440px;height:440px;border-radius:50%;border:1px dashed var(--gray-200)}
+.hero-photo-frame{position:relative;width:100%;max-width:520px;display:flex;align-items:center;justify-content:center}
+.hero-photo-frame img{width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 30px 45px rgba(11,11,12,0.22));position:relative;z-index:1}
+.hero-orb{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,148,87,0.45),rgba(255,107,44,0) 70%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;filter:blur(6px)}
+.float-card{position:absolute;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,0.6);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:12px;animation:float 5s ease-in-out infinite}
+[data-theme="dark"] .float-card{background:rgba(20,20,22,0.85);border-color:rgba(255,255,255,0.1)}
+.float-card .fc-icon{width:38px;height:38px;border-radius:11px;background:var(--orange-50);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.float-card .fc-num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:17px;color:var(--black);line-height:1.1}
+.float-card .fc-label{font-size:11.5px;color:var(--gray-600);font-weight:500;white-space:nowrap}
+.fc-1{top:2%;left:-6%;animation-delay:0s;z-index:2}
+.fc-2{top:42%;right:-10%;animation-delay:1.2s;z-index:2}
+.fc-3{bottom:2%;left:-8%;animation-delay:0.6s;z-index:2}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* TRUST */
+.trust{padding:56px 0;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);overflow:hidden}
+.trust-label{text-align:center;font-size:12.5px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:32px}
+.trust-viewport{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent 0,black 64px,black calc(100% - 64px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,black 64px,black calc(100% - 64px),transparent 100%)}
+.trust-track{display:flex;width:max-content;gap:56px;align-items:center;animation:trust-scroll 32s linear infinite}
+.trust-track:hover{animation-play-state:paused}
+@keyframes trust-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.trust-item{display:flex;align-items:center;gap:10px;flex:0 0 auto;filter:grayscale(1) opacity(0.7);transition:filter 0.25s ease}
+.trust-item:hover{filter:grayscale(0) opacity(1)}
+.trust-badge{width:32px;height:32px;border-radius:9px;flex-shrink:0;background:var(--gray-900);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11.5px}
+.trust-item span{font-weight:700;font-size:16.5px;color:var(--gray-600);white-space:nowrap}
+/* SECTION */
+.section{padding:100px 0}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.section-head h2{font-size:38px;line-height:1.12}
+.section-head h2 .accent{color:var(--orange);display:block}
+.section-head p{font-size:16px;color:var(--gray-600);line-height:1.65}
+.section-head.center{grid-template-columns:1fr;text-align:center;justify-items:center}
+.section-head.center p{max-width:560px}
+/* OFFER */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.offer-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius-lg);padding:32px;transition:transform 0.3s var(--ease),box-shadow 0.3s,background 0.3s}
+.offer-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);background:var(--white)}
+.offer-icon{width:48px;height:48px;border-radius:13px;background:var(--white);border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--orange)}
+.offer-card h3{font-size:18px;margin-bottom:10px}
+.offer-card p{font-size:14.5px;color:var(--gray-600);line-height:1.6}
+/* HOW IT WORKS */
+.how{background:var(--gray-50)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.how-step{position:relative;padding:0 20px 0 0}
+.how-step:not(:last-child)::after{content:'';position:absolute;top:26px;right:-4px;width:calc(100% - 40px);border-top:1.5px dashed var(--gray-200)}
+.how-num{font-weight:800;font-size:14px;color:var(--white);background:var(--black);width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;z-index:2}
+.how-step:nth-child(1) .how-num{background:var(--orange)}
+.how-step h3{font-size:17px;margin-bottom:10px}
+.how-step p{font-size:14px;color:var(--gray-600);line-height:1.6}
+/* PROGRAMS */
+.programs-sec{background:var(--gray-50)}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prog-card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform 0.3s var(--ease),box-shadow 0.3s}
+.prog-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.prog-card:hover .prog-icon{transform:scale(1.15) rotate(-5deg)}
+.prog-status{display:inline-flex;align-items:center;gap:5px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;padding:4px 11px;border-radius:100px;border:1px solid;margin-bottom:14px;width:fit-content}
+.ps-live{color:var(--green);border-color:rgba(34,211,116,0.3);background:rgba(34,211,116,0.08)}
+.ps-soon{color:var(--amber);border-color:rgba(245,166,35,0.3);background:rgba(245,166,35,0.08)}
+.prog-body{padding:22px 20px 24px;display:flex;flex-direction:column;flex:1}
+.prog-icon{font-size:2.2rem;margin-bottom:14px;display:block;transition:transform 0.3s var(--ease)}
+.prog-title{font-weight:700;font-size:1.05rem;margin-bottom:8px;line-height:1.2}
+.prog-desc{font-size:0.82rem;color:var(--gray-600);line-height:1.65;margin-bottom:16px;flex:1}
+.prog-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.prog-pill{display:flex;align-items:center;gap:4px;background:var(--gray-100);border:1px solid var(--gray-200);padding:4px 10px;border-radius:100px;font-size:0.7rem;color:var(--gray-600)}
+.prog-pill.orange{color:var(--orange);border-color:rgba(255,107,44,0.3);background:var(--orange-50)}
+.btn-prog{width:100%;padding:11px;border:1px solid var(--orange);background:var(--orange-50);color:var(--orange);border-radius:10px;font-size:0.82rem;font-weight:600;text-align:center;display:block;transition:background 0.3s,color 0.3s}
+.btn-prog:hover{background:var(--orange);color:#fff}
+/* INTERNSHIPS */
+.int-sec{background:var(--white)}
+.int-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-100);border-radius:var(--radius-md);overflow:hidden}
+.int-item{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:var(--white);border-bottom:1px solid var(--gray-100);transition:background 0.25s,padding-left 0.3s var(--ease);position:relative;cursor:pointer}
+.int-item:last-child{border-bottom:none}
+.int-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--orange),var(--orange-dark));transform:scaleY(0);transform-origin:bottom;transition:transform 0.35s var(--ease)}
+.int-item:hover{background:var(--gray-50);padding-left:32px}
+.int-item:hover::before{transform:scaleY(1)}
+.int-item:hover .int-arr{color:var(--orange);transform:translateX(6px)}
+.int-item:hover .int-emoji{transform:scale(1.2) rotate(-8deg)}
+.int-left{display:flex;align-items:center;gap:14px}
+.int-emoji{font-size:1.4rem;transition:transform 0.3s var(--ease)}
+.int-name{font-weight:700;font-size:1rem;letter-spacing:-0.02em}
+.int-badge{font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:100px;border:1px solid}
+.b-open{color:var(--green);border-color:rgba(34,211,116,0.3);background:rgba(34,211,116,0.07)}
+.b-soon{color:var(--amber);border-color:rgba(245,166,35,0.3);background:rgba(245,166,35,0.07)}
+.int-right{display:flex;align-items:center;gap:16px}
+.int-dur{font-size:0.78rem;color:var(--gray-400);font-family:'DM Mono',monospace}
+.int-arr{color:var(--gray-400);font-size:1.1rem;transition:color 0.25s,transform 0.3s var(--ease);background:none;border:none;font-family:'Inter',sans-serif;cursor:pointer;padding:0}
+/* CERTIFICATES */
+.cert-sec{background:var(--gray-50)}
+.cert-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--gray-100);border-radius:var(--radius-lg);overflow:hidden}
+.cert-left{padding:48px 44px;background:var(--white)}
+.cert-left h3{font-size:1.7rem;line-height:1.1;margin-bottom:14px}
+.cert-left p{font-size:0.88rem;color:var(--gray-600);line-height:1.7;margin-bottom:28px}
+.cert-steps{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.cert-step{display:flex;align-items:flex-start;gap:12px}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font-weight:700;font-size:0.72rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(255,107,44,0.3)}
+.step-text{font-size:0.85rem;color:var(--gray-600);padding-top:3px;line-height:1.5}
+.cert-right{background:var(--gray-50);border-left:1px solid var(--gray-100);display:flex;align-items:center;justify-content:center;padding:48px 36px;position:relative;overflow:hidden}
+.cert-right::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,107,44,0.12) 1px,transparent 1px);background-size:28px 28px}
+.cert-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:28px 24px;width:100%;max-width:300px;text-align:center;position:relative;z-index:1;box-shadow:var(--shadow-md);transition:transform 0.4s var(--ease),box-shadow 0.4s}
+.cert-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:var(--shadow-lg)}
+.cert-badge-wrap{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-dark));display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.5rem;box-shadow:0 0 0 8px var(--orange-50),0 8px 24px rgba(255,107,44,0.25);animation:certPulse 3s ease-in-out infinite}
+@keyframes certPulse{0%,100%{box-shadow:0 0 0 8px var(--orange-50),0 8px 24px rgba(255,107,44,0.25)}50%{box-shadow:0 0 0 14px var(--orange-50),0 8px 32px rgba(255,107,44,0.25)}}
+.cert-card h4{font-size:0.95rem;margin-bottom:6px}
+.cert-card p{font-size:0.76rem;color:var(--gray-600);margin-bottom:12px;line-height:1.5}
+.cert-id{font-family:'DM Mono',monospace;font-size:0.66rem;color:var(--orange);letter-spacing:0.06em}
+/* WEBINARS */
+.webinar-feature{position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#17171a,#0c0c0e 60%,#1d1005);color:#fff;padding:52px 48px;display:grid;grid-template-columns:1.05fr 0.8fr;gap:40px;align-items:center;box-shadow:0 32px 64px -28px rgba(11,11,12,0.5);margin-bottom:48px}
+.webinar-feature::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 400px at 85% 15%,rgba(255,107,44,0.28),transparent 60%)}
+.webinar-tag{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;color:var(--orange-100);display:flex;align-items:center;gap:8px;position:relative}
+.webinar-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.webinar-feature h3{color:#fff;margin-top:16px;font-size:clamp(24px,3vw,34px);line-height:1.18;position:relative}
+.webinar-feature p{margin-top:14px;color:rgba(255,255,255,0.62);font-size:15px;line-height:1.65;max-width:440px;position:relative}
+.webinar-meta{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;position:relative}
+.webinar-meta div{font-size:13px;color:rgba(255,255,255,0.5)}
+.webinar-meta strong{display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:2px}
+.webinar-host{display:flex;align-items:center;gap:12px;margin-top:24px;position:relative}
+.webinar-host img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.15)}
+.webinar-host .name{font-size:14px;font-weight:600}
+.webinar-host .role{font-size:12px;color:rgba(255,255,255,0.5)}
+.webinar-visual{position:relative;aspect-ratio:4/5;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.webinar-visual .glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,44,0.5),transparent 70%);filter:blur(30px)}
+.webinar-visual .rings{position:relative;width:130px;height:130px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center}
+.webinar-visual .rings::before,.webinar-visual .rings::after{content:'';position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,0.12)}
+.webinar-visual .rings::before{inset:-28px}
+.webinar-visual .rings::after{inset:-56px;border-color:rgba(255,255,255,0.06)}
+.webinar-play{width:60px;height:60px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px rgba(255,255,255,0.06);transition:transform 0.3s}
+.webinar-play:hover{transform:scale(1.06)}
+.webinar-row{display:grid;grid-template-columns:80px 1fr auto auto;align-items:center;gap:24px;padding:22px 6px;border-top:1px solid var(--gray-100);transition:padding-left 0.35s var(--ease),background 0.35s;cursor:pointer}
+.webinar-list .webinar-row:last-child{border-bottom:1px solid var(--gray-100)}
+.webinar-row:hover{padding-left:14px;background:var(--gray-50)}
+.wr-date{text-align:left}
+.wr-date .d{font-family:'Plus Jakarta Sans';font-size:24px;font-weight:800;line-height:1;color:var(--black)}
+.wr-date .m{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);margin-top:4px}
+.wr-info h4{font-size:16px;font-weight:700;margin-bottom:4px}
+.wr-info p{font-size:13px;color:var(--gray-600)}
+.wr-host{display:flex;align-items:center;gap:8px}
+.wr-host img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+.wr-host .hn{font-size:12.5px;font-weight:600;color:var(--black)}
+.wr-host .hr{font-size:11px;color:var(--gray-400)}
+.wr-cta{padding:10px 18px;border-radius:100px;border:1px solid var(--gray-200);background:var(--white);font-size:13px;font-weight:600;color:var(--black);white-space:nowrap;transition:background 0.3s,color 0.3s,border-color 0.3s;cursor:pointer}
+.wr-cta:hover{background:var(--black);color:#fff;border-color:var(--black)}
+/* AMBASSADORS */
+.amb-sec{background:var(--white)}
+.auto-scroll-wrap{overflow:hidden;position:relative;mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%)}
+.auto-scroll-track{display:flex;gap:16px;width:max-content;animation:scrollLeft 40s linear infinite}
+.auto-scroll-track:hover{animation-play-state:paused}
+@keyframes scrollLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.amb-card{background:var(--white);border:1px solid var(--gray-100);border-radius:12px;overflow:hidden;transition:transform 0.3s var(--ease),border-color 0.3s,box-shadow 0.3s;position:relative;width:170px;flex-shrink:0}
+.amb-card:hover{transform:translateY(-5px);border-color:var(--orange);box-shadow:var(--shadow-md)}
+.amb-card:hover .amb-name{color:var(--orange)}
+.amb-img-wrap{width:100%;aspect-ratio:1;overflow:hidden;background:var(--gray-50)}
+.amb-img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%);transition:filter 0.4s var(--ease),transform 0.4s var(--ease)}
+.amb-card:hover .amb-img{filter:grayscale(0%) brightness(1.05);transform:scale(1.06)}
+.amb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.6rem;color:var(--gray-400);background:linear-gradient(135deg,var(--gray-50),var(--gray-100))}
+.amb-info{padding:12px}
+.amb-name{font-weight:700;font-size:0.8rem;margin-bottom:2px;transition:color 0.25s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.amb-college{font-size:0.64rem;color:var(--gray-600);margin-bottom:6px}
+.amb-li{font-size:0.64rem;color:var(--orange);font-weight:500;letter-spacing:0.04em}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;border:1px solid var(--gray-200);background:transparent;color:var(--black);font-size:14px;font-weight:600;transition:border-color 0.25s,background 0.25s;cursor:pointer}
+.btn-outline:hover{border-color:var(--orange);background:var(--orange-50);color:var(--orange)}
+.amb-apply{background:linear-gradient(135deg,var(--orange-50),transparent);border:1px dashed var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px 12px;text-align:center;transition:background 0.3s}
+.amb-apply:hover{background:var(--orange-50)}
+/* COMMUNITY */
+.comm-sec{background:var(--gray-50)}
+.community-grid{display:grid;grid-template-columns:1fr 0.92fr;gap:56px;align-items:center}
+.community-copy h2{font-size:38px;line-height:1.12;margin-bottom:18px}
+.community-copy p.lead{font-size:16px;color:var(--gray-600);line-height:1.65;max-width:460px;margin-bottom:28px}
+.community-avatars{display:flex;align-items:center;gap:14px;margin-top:28px}
+.wa-avatar-stack{display:flex}
+.wa-avatar-stack svg.av{width:34px;height:34px;border-radius:50%;border:2.5px solid var(--gray-50);margin-left:-10px;flex-shrink:0;box-shadow:var(--shadow-sm)}
+.wa-avatar-stack svg.av:first-child{margin-left:0}
+.note{font-size:13px;color:var(--gray-600);font-weight:500}
+.phone-visual{position:relative;display:flex;justify-content:center}
+.phone-mock{width:280px;height:570px;background:var(--black);border-radius:44px;padding:12px;box-shadow:0 50px 90px -28px rgba(11,11,12,0.35),0 0 0 1px rgba(11,11,12,0.05);position:relative;animation:phoneFloat 6s ease-in-out infinite}
+@keyframes phoneFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.phone-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:100px;height:20px;background:var(--black);border-radius:20px;z-index:5}
+.phone-screen{width:100%;height:100%;background:#ECE5DD;border-radius:32px;overflow:hidden;display:flex;flex-direction:column}
+.wa-header{background:#075E54;color:#fff;padding:16px 12px 10px;display:flex;align-items:center;gap:10px}
+.wa-header .wa-avatar{width:28px;height:28px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+.wa-header .wa-name{font-size:12px;font-weight:600}
+.wa-header .wa-status{font-size:9px;opacity:0.75}
+.wa-body{flex:1;padding:10px 8px;display:flex;flex-direction:column;gap:7px;overflow:hidden}
+.wa-msg{background:#fff;border-radius:9px;padding:7px 9px;font-size:10px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,0.06);max-width:88%;position:relative}
+.wa-msg b{font-weight:700;display:block;font-size:10px;margin-bottom:2px;color:#075E54}
+.wa-msg .wa-time{display:block;text-align:right;font-size:8px;color:#999;margin-top:2px}
+.wa-float{position:absolute;background:var(--white);border-radius:16px;box-shadow:var(--shadow-md);padding:12px 16px;text-align:left;animation:waFloat 5s ease-in-out infinite}
+[data-theme="dark"] .wa-float{background:var(--gray-50)}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+.wa-float .num{font-family:'Plus Jakarta Sans';font-size:17px;font-weight:800;color:var(--black);letter-spacing:-0.01em}
+.wa-float .lbl{font-size:10.5px;color:var(--gray-600);font-weight:500;margin-top:2px;white-space:nowrap}
+.wa-f1{top:4%;left:-10%}
+.wa-f2{top:38%;right:-14%;animation-delay:1s}
+.wa-f3{bottom:8%;left:-12%;animation-delay:2s}
+.wa-live{top:-4%;right:6%;display:flex;align-items:center;gap:6px;padding:8px 14px;animation-delay:0.5s}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#2ecc71;flex-shrink:0;box-shadow:0 0 0 0 rgba(46,204,113,0.6);animation:livePulse 1.8s infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(46,204,113,0.55)}70%{box-shadow:0 0 0 8px rgba(46,204,113,0)}100%{box-shadow:0 0 0 0 rgba(46,204,113,0)}}
+/* CFEATURE */
+.cfeature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-100);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--gray-100)}
+.cfeature-card{background:var(--white);padding:36px 30px;position:relative;overflow:hidden;transition:transform 0.4s var(--ease),background 0.4s ease}
+.cfeature-card:hover{transform:translateY(-6px);background:var(--gray-50)}
+.cfeature-index{font-size:12px;font-weight:700;color:var(--gray-400);letter-spacing:0.05em;margin-bottom:20px}
+.cfeature-card h3{font-size:17px;margin-bottom:8px}
+.cfeature-card p{font-size:13.5px;color:var(--gray-600);line-height:1.6}
+.cfeature-underline{height:2px;width:24px;background:var(--orange);margin-top:16px;transition:width 0.4s var(--ease)}
+.cfeature-card:hover .cfeature-underline{width:48px}
+/* TEAM */
+.team-sec{background:var(--white)}
+.founder-wrap{display:grid;grid-template-columns:140px 1fr;gap:40px;align-items:center;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius-lg);padding:40px;margin-bottom:28px;transition:border-color 0.3s;position:relative;overflow:hidden}
+.founder-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--orange-dark),transparent)}
+.founder-wrap:hover{border-color:var(--orange)}
+.founder-img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;background:var(--gray-100);filter:grayscale(10%);transition:transform 0.4s var(--ease),filter 0.4s}
+.founder-wrap:hover .founder-img{transform:scale(1.03);filter:grayscale(0%)}
+.founder-chip{display:inline-flex;align-items:center;gap:6px;background:var(--orange-50);border:1px solid var(--orange);color:var(--orange);padding:4px 12px;border-radius:100px;font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;margin-bottom:10px}
+.founder-name{font-size:2rem;line-height:1;margin-bottom:5px}
+.founder-role{font-size:0.84rem;color:var(--gray-600);margin-bottom:16px}
+.founder-bio{font-size:0.88rem;line-height:1.75;color:var(--gray-600);margin-bottom:20px}
+.socials{display:flex;gap:10px}
+.social-pill{padding:8px 16px;border-radius:9px;border:1px solid var(--gray-200);font-size:0.75rem;font-weight:500;color:var(--ink);transition:border-color 0.25s,color 0.25s,background 0.25s,transform 0.25s var(--ease)}
+.social-pill:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-50);transform:translateY(-2px)}
+.team-scroll-track{display:flex;gap:12px;width:max-content;animation:scrollLeft 35s linear infinite}
+.team-scroll-track:hover{animation-play-state:paused}
+.team-card{background:var(--white);border:1px solid var(--gray-100);border-radius:10px;overflow:hidden;transition:transform 0.3s var(--ease),border-color 0.3s,box-shadow 0.3s;text-align:center;position:relative;width:145px;flex-shrink:0}
+.team-card:hover{transform:translateY(-4px) scale(1.02);border-color:var(--orange);box-shadow:var(--shadow-md)}
+.team-card:hover .team-name{color:var(--orange)}
+.team-img-wrap{width:100%;aspect-ratio:1;overflow:hidden;background:var(--gray-50)}
+.team-img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%);transition:filter 0.4s var(--ease),transform 0.4s var(--ease)}
+.team-card:hover .team-img{filter:grayscale(0%);transform:scale(1.08)}
+.team-info{padding:10px 8px}
+.team-name{font-weight:700;font-size:0.72rem;margin-bottom:2px;transition:color 0.25s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.team-role{font-size:0.6rem;color:var(--gray-600)}
+/* TESTIMONIALS */
+.testimonials-yt{padding:80px 0;background:var(--gray-50)}
+.ty-container{max-width:var(--container);margin:0 auto;padding:0 32px}
+.ty-head{text-align:center;margin-bottom:48px}
+.testimonial-title{font-size:38px}
+.testimonial-title .orange{color:var(--orange)}
+.ty-head p{font-size:16px;color:var(--gray-600);margin-top:10px}
+.ty-carousel{position:relative}
+.ty-slider-nav{display:flex;justify-content:center;gap:12px;margin-bottom:24px}
+.ty-nav{width:40px;height:40px;border-radius:50%;background:var(--white);border:1px solid var(--gray-200);color:var(--black);font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:border-color 0.25s,background 0.25s;cursor:pointer}
+.ty-nav:hover{border-color:var(--orange);background:var(--orange-50);color:var(--orange)}
+.ty-track-wrap{overflow:hidden}
+.ty-track{display:flex;gap:20px;transition:transform 0.5s var(--ease)}
+.ty-card{width:240px;flex-shrink:0;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-md);overflow:hidden;cursor:pointer;transition:transform 0.3s var(--ease),box-shadow 0.3s}
+.ty-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.ty-thumb{position:relative;width:100%;height:160px;overflow:hidden;background:var(--gray-100)}
+.ty-thumb img{width:100%;height:100%;object-fit:cover}
+.ty-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,0.6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:background 0.25s,transform 0.25s}
+.ty-card:hover .ty-play{background:var(--orange);transform:translate(-50%,-50%) scale(1.1)}
+.ty-info{padding:14px}
+.ty-info p{font-size:0.82rem;font-weight:600;color:var(--black)}
+/* REVIEWS */
+.wls-section{padding:80px 0;background:var(--white)}
+.wls-container{max-width:var(--container);margin:0 auto;padding:0 32px}
+.wls-row-wrap{overflow:hidden}
+.wls-row{display:flex;gap:20px;width:max-content;animation:scrollLeft 40s linear infinite}
+.wls-row:hover{animation-play-state:paused}
+.wls-card{width:300px;flex-shrink:0;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius-md);padding:24px 22px;transition:transform 0.3s var(--ease),box-shadow 0.3s}
+.wls-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.wls-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.wls-badge{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:var(--orange-50);color:var(--orange);border:1px solid rgba(255,107,44,0.2);display:flex;align-items:center;gap:5px}
+.wls-badge i{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.wls-quote-icon{font-size:1.5rem;color:var(--gray-200);line-height:1}
+.wls-stars{margin-bottom:10px;font-size:0.85rem}
+.wls-stars .on{color:#f5a623}
+.wls-stars .off{color:var(--gray-200)}
+.wls-text{font-size:0.82rem;color:var(--gray-600);line-height:1.65;margin-bottom:16px}
+.wls-person{display:flex;align-items:center;gap:10px}
+.wls-avatar{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.7rem;flex-shrink:0}
+.wls-name{font-size:0.8rem;font-weight:700}
+.wls-role{font-size:0.7rem;color:var(--gray-600)}
+/* FAQ */
+.faq-sec{padding:80px 0;background:var(--gray-50)}
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--gray-100)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 4px;font-family:'Plus Jakarta Sans';font-weight:600;font-size:16px;color:var(--black)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-icon{width:26px;height:26px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--black);transition:transform 0.3s,background 0.3s}
+.faq-item[open] .faq-icon{transform:rotate(45deg);background:var(--orange);color:white}
+.faq-answer{padding:0 4px 24px;font-size:14.5px;color:var(--gray-600);line-height:1.7;max-width:660px}
+/* FINAL CTA */
+.final-cta{background:linear-gradient(135deg,var(--orange),#FF8A4D);border-radius:32px;padding:72px 56px;text-align:center;overflow:hidden;position:relative}
+.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,0.18),transparent 45%)}
+.final-cta h2{color:white;font-size:38px;max-width:600px;margin:0 auto 16px;line-height:1.15;position:relative}
+.final-cta p{color:rgba(255,255,255,0.9);font-size:16px;max-width:460px;margin:0 auto 32px;position:relative}
+.final-cta .btn-white{background:white;color:var(--orange-dark);position:relative;box-shadow:0 12px 32px rgba(0,0,0,0.18)}
+.final-cta .btn-white:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,0.22)}
+.final-cta .btn-outline-light{background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.5);display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:100px;font-size:15px;font-weight:600;transition:background 0.25s,transform 0.25s;white-space:nowrap}
+.final-cta .btn-outline-light:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
+.final-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* FOOTER */
+footer{background:var(--black);color:rgba(255,255,255,0.6);padding:72px 0 28px;margin-top:80px}
+footer .wrap{max-width:var(--container);margin:0 auto;padding:0 32px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand .logo{color:white;margin-bottom:14px}
+.footer-brand p{font-size:14px;line-height:1.7;max-width:280px;color:rgba(255,255,255,0.45)}
+.footer-col h4{color:white;font-size:14px;font-weight:600;margin-bottom:16px}
+.footer-col li{margin-bottom:10px}
+.footer-col a{font-size:13.5px;color:rgba(255,255,255,0.5);transition:color 0.2s}
+.footer-col a:hover{color:white}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;flex-wrap:wrap;gap:16px}
+.footer-bottom span{font-size:13px;color:rgba(255,255,255,0.35)}
+.footer-socials{display:flex;gap:10px}
+.f-soc{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:white;font-size:1rem;transition:background 0.2s;text-decoration:none}
+.f-soc:hover{background:var(--orange)}
+.footer-built{font-size:13px;color:rgba(255,255,255,0.35)}
+.footer-built span{color:#ff7a45}
+/* MODALS */
+.modal-bg{position:fixed;inset:0;z-index:700;background:rgba(0,0,0,0.78);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s var(--ease);padding:20px}
+.modal-bg.show{opacity:1;pointer-events:all}
+.modal-box{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);padding:40px 36px;width:100%;max-width:480px;position:relative;transform:translateY(24px) scale(0.98);transition:transform 0.35s var(--ease);max-height:90vh;overflow-y:auto}
+.modal-bg.show .modal-box{transform:translateY(0) scale(1)}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--orange-dark),transparent);border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.modal-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:var(--gray-50);border:1px solid var(--gray-200);color:var(--gray-600);font-size:0.95rem;display:flex;align-items:center;justify-content:center;transition:color 0.2s,border-color 0.2s;cursor:pointer}
+.modal-close:hover{color:var(--black);border-color:var(--orange)}
+.modal-title{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.4rem;letter-spacing:-0.03em;margin-bottom:5px;color:var(--black)}
+.modal-sub{font-size:0.84rem;color:var(--gray-600);margin-bottom:24px;line-height:1.6}
+.form-g{margin-bottom:14px}
+.form-lbl{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-600);margin-bottom:6px;display:block;font-weight:600}
+.form-inp{width:100%;padding:12px 16px;border-radius:10px;background:var(--gray-50);border:1px solid var(--gray-200);color:var(--ink);font-family:'Inter',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.25s,box-shadow 0.25s}
+.form-inp:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-50)}
+.form-inp::placeholder{color:var(--gray-400)}
+.btn-submit{width:100%;padding:14px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;border:none;font-family:'Inter',sans-serif;font-weight:700;font-size:0.92rem;transition:transform 0.25s var(--ease),box-shadow 0.25s;margin-top:6px;box-shadow:0 6px 24px rgba(255,107,44,0.3);cursor:pointer}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,107,44,0.35)}
+.form-success{display:none;text-align:center;padding:20px 0}
+.form-success.show{display:block}
+.fs-icon{font-size:2.8rem;margin-bottom:10px;animation:bounce 0.6s var(--ease)}
+@keyframes bounce{0%{transform:scale(0.5)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.fs-title{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.3rem;margin-bottom:6px;color:var(--black)}
+.fs-sub{font-size:0.85rem;color:var(--gray-600);line-height:1.6}
+.fs-sub a{color:var(--orange)}
+/* ADMIN */
+.admin-bg{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);display:flex;align-items:flex-start;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s var(--ease);overflow-y:auto;padding:40px 20px}
+.admin-bg.show{opacity:1;pointer-events:all}
+.admin-box{background:var(--white);border:1px solid var(--gray-100);border-radius:20px;width:100%;max-width:760px;position:relative;overflow:hidden;transform:translateY(30px) scale(0.97);transition:transform 0.35s var(--ease);margin:auto}
+.admin-bg.show .admin-box{transform:translateY(0) scale(1)}
+.admin-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--orange-dark),transparent)}
+.admin-header{display:flex;align-items:center;justify-content:space-between;padding:24px 28px 20px;border-bottom:1px solid var(--gray-100)}
+.admin-title{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.2rem;letter-spacing:-0.03em;color:var(--black)}
+.admin-title span{color:var(--orange)}
+.admin-close{width:32px;height:32px;border-radius:8px;background:var(--gray-50);border:1px solid var(--gray-200);color:var(--gray-600);font-size:0.95rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.admin-close:hover{color:var(--black);border-color:var(--orange)}
+.admin-tabs{display:flex;gap:0;border-bottom:1px solid var(--gray-100);padding:0 28px;flex-wrap:wrap}
+.admin-tab{padding:12px 16px;font-size:0.78rem;font-weight:600;color:var(--gray-600);border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color 0.2s,border-color 0.2s;cursor:pointer}
+.admin-tab.active{color:var(--orange);border-bottom-color:var(--orange)}
+.admin-tab:hover{color:var(--black)}
+.admin-body{padding:24px 28px}
+.admin-section{display:none}
+.admin-section.active{display:block}
+.admin-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.admin-item{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;transition:border-color 0.25s}
+.admin-item:hover{border-color:var(--orange)}
+.admin-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.admin-form-full{grid-column:1/-1}
+.admin-add-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:9px;background:var(--gray-50);color:var(--black);border:1px solid var(--gray-200);font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;transition:border-color 0.25s,background 0.25s}
+.admin-add-btn:hover{border-color:var(--orange);background:var(--orange-50);color:var(--orange)}
+.admin-form{display:none}
+.admin-form.open{display:block}
+.admin-form-actions{display:flex;gap:10px;margin-top:20px;justify-content:flex-end}
+.admin-save-btn{padding:10px 24px;border-radius:9px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;border:none;font-family:'Inter',sans-serif;font-weight:700;font-size:0.82rem;box-shadow:0 4px 16px rgba(255,107,44,0.25);cursor:pointer;transition:transform 0.25s var(--ease),box-shadow 0.25s}
+.admin-save-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,44,0.3)}
+.admin-cancel-btn{padding:10px 18px;border-radius:9px;background:var(--gray-50);color:var(--gray-600);border:1px solid var(--gray-200);font-family:'Inter',sans-serif;font-size:0.82rem;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.admin-cancel-btn:hover{color:var(--black);border-color:var(--orange)}
+.admin-saved-toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--orange);color:var(--orange);padding:10px 24px;border-radius:100px;font-size:0.8rem;font-weight:600;box-shadow:0 8px 32px rgba(0,0,0,0.3);z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.admin-saved-toast.show{opacity:1}
+/* RESPONSIVE */
+@media(max-width:1080px){
+.hero-grid{grid-template-columns:1fr}
+.hero-visual{max-width:420px;margin:0 auto;order:-1}
+.hero h1{font-size:40px}
+.fc-2{display:none}
+.offer-grid,.prog-grid,.cfeature-grid{grid-template-columns:repeat(2,1fr)}
+.how-grid{grid-template-columns:repeat(2,1fr);gap:40px 20px}
+.how-step:nth-child(2)::after{display:none}
+.community-grid{grid-template-columns:1fr}
+.phone-visual{order:-1;margin-bottom:20px}
+.webinar-feature{grid-template-columns:1fr;padding:40px 28px}
+.webinar-row{grid-template-columns:60px 1fr;row-gap:12px}
+.webinar-row .wr-cta{grid-column:1/3;justify-self:start}
+.webinar-row .wr-host{display:none}
+.footer-grid{grid-template-columns:1fr 1fr 1fr}
+.section-head{grid-template-columns:1fr}
+.cert-wrap{grid-template-columns:1fr}
+.cert-right{border-left:none;border-top:1px solid var(--gray-100)}
+.founder-wrap{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.mobile-menu{display:flex}
+.mobile-menu-overlay{display:block}
+.hero{padding:48px 0 64px}
+.hero h1{font-size:32px}
+.float-card,.hero-orb{display:none}
+.section{padding:64px 0}
+.section-head h2{font-size:28px}
+.offer-grid,.prog-grid,.how-grid,.cfeature-grid{grid-template-columns:1fr}
+.how-step::after{display:none!important}
+.footer-grid{grid-template-columns:1fr;gap:28px}
+.final-cta{padding:48px 24px;border-radius:24px}
+.final-cta h2{font-size:28px}
+.final-actions{flex-direction:column;align-items:stretch}
+.wrap{padding:0 20px}
+}
+@media(max-width:560px){
+.hero h1{font-size:28px}
+.hero-actions{flex-direction:column}
+.hero-actions .btn{width:100%}
+}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");pointer-events:none;z-index:8000}
 </style>
 </head>
 <body>
-<!-- Cohesive Gradient Styles -->
-<style>
-body {
-  background: linear-gradient(180deg, #ffffff 0%, #fff7f0 40%, #f6faff 100%) fixed !important;
-  background-repeat: no-repeat !important;
-}
-
-/* Translucent irregular blobs overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: -15% -15%; /* cover slightly beyond viewport */
-  background: 
-    radial-gradient(ellipse at 25% 30%, rgba(255,111,0,0.14) 0%, rgba(255,111,0,0) 55%),
-    radial-gradient(ellipse at 75% 20%, rgba(0,170,255,0.14) 0%, rgba(0,170,255,0) 55%),
-    radial-gradient(ellipse at 40% 80%, rgba(255,0,128,0.12) 0%, rgba(255,0,128,0) 55%),
-    radial-gradient(ellipse at 80% 75%, rgba(0,200,83,0.12) 0%, rgba(0,200,83,0) 55%);
-  filter: blur(80px);
-  z-index: -1;
-  pointer-events: none;
-  animation: blobMove 25s ease-in-out infinite alternate;
-}
-
-@keyframes blobMove {
-  0%   { transform: scale(1) translate(0,0); }
-  50%  { transform: scale(1.2) translate(5%, -3%); }
-  100% { transform: scale(1) translate(-3%, 4%); }
-}
-
-/* Make all major areas transparent so the body gradient shows */
-header, footer, section, .hero, .features, .team-section, .community-stats-section, #event-gallery, #events, #campus, .faq-section {
-  background: transparent !important;
-}
-
-/* Remove decorative pseudo elements that cause visual breaks */
-section::before, section::after,
-.hero::before, .hero::after,
-.features::before, .features::after,
-.team-section::before, .team-section::after,
-.community-stats-section::before, .community-stats-section::after,
-footer::before, footer::after,
-.faq-section::before, .faq-section::after {
-  display: none !important;
-  content: none !important;
-}
-</style>
+<!-- HEADER -->
 <header>
-  <img src="Taskveda_logo_circle_whitebg-remoe bg.png" alt="TaskVeda Logo">
-  <nav class="desktop-nav">
-    <a href="#">Home</a>
-    <a href="internships.html">Internships</a>
-    <a href="#freelancing" id="freelancing-nav-link">Freelancing Gigs</a>
-    <a href="#campus">Campus Ambassadors</a>
-    <a href="events.html">Events</a>
-    <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Community</a>
-  </nav>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</header>
-
-<!-- Mobile Sidebar Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
-  <a href="#">Home</a>
-  <a href="internships.html">Internships</a>
-  <a href="#freelancing" id="freelancing-mobile-nav-link">Freelancing Gigs</a>
-  <a href="#campus">Campus Ambassadors</a>
-  <a href="#events">Events</a>
-  <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Community</a>
-</div>
-<section class="hero" id="apply">
-  <h1 id="typing"></h1>
-<p>Gain hands-on experience through structured tech training and real-world projects designed for beginners.</p>
-  <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank">Join Community</a>
-</section>
-<section id="features" class="features">
-  <div class="card" id="day-job-card">
-    <h3>Day‑Jobs</h3>
-    <p>Practical exposure through volunteering.</p>
-  </div>
-  <a href="internships.html" class="card">
-    <h3>Internships</h3>
-    <p>Real projects. Certified experience.</p>
-  </a>
-  <div id="freelancing" class="card">
-    <h3>Freelancing</h3>
-    <p>Earn experience through real gigs.</p>
-  </div>
-  <a href="https://forms.gle/P3fZPZ5bRbhpffNq6" target="_blank" class="card">
-    <h3>Campus Ambassador</h3>
-    <p>Apply now to represent your college with TaskVeda.</p>
-  </a>
-</section>
-
-<!-- Popup for Day-Jobs -->
-<div id="day-job-popup" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <p>Currently, we don’t have any day jobs listed.<br>Once available, they will be posted here. Stay tuned!</p>
-  </div>
-</div>
-
-<!-- Popup for Freelancing -->
-<div id="freelancing-popup" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <p>Currently, we don’t have any freelancing opportunities listed.<br>Once available, they will be posted here. Stay tuned!</p>
-  </div>
-</div>
-
-<section id="campus" class="hero">
-  <h2>Our Campus Ambassadors</h2>
-  <p>Meet our amazing team of campus ambassadors representing TaskVeda across colleges.</p>
-  <div class="ambassador-carousel">
-    <div class="ambassador-container">
-      <!-- Original set of ambassadors -->
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Shreya Yadav.jpg" alt="Shreya Yadav">
-        </div>
-        <h3>Shreya Yadav</h3>
-        <div class="college-info">
-          <img src="college_logo/Jaypee institute of information technology.jpg" alt="Jaypee Institute of Information Technology" class="college-logo">
-          <span class="college-name">Jaypee Institute of Information Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/shreya-yadav-/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="TaskVeda" class="logo-img">
+      <div class="logo-text">
+        <div class="logo-title"><span class="task">Task</span><span class="veda">Veda</span></div>
+        <span class="logo-sub">Your Career. Our Mission.</span>
       </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/KOMMA NITHYANANDHA REDDY.jpg" alt="Komma Nithyanandha Reddy">
-        </div>
-        <h3>Komma Nithyanandha Reddy</h3>
-        <div class="college-info">
-          <img src="college_logo/KL university.jpg" alt="KL University" class="college-logo">
-          <span class="college-name">KL University</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/nandhareddy/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Meera Padala.jpeg" alt="Meera Padala">
-        </div>
-        <h3>Meera Padala</h3>
-        <div class="college-info">
-          <img src="college_logo/Geethanjali college of engineering and technology.jpeg" alt="Geethanjali College of Engineering and Technology" class="college-logo">
-          <span class="college-name">Geethanjali College of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/meera-padala-bab86128a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Rida Zareen.jpg" alt="Rida Zareen">
-        </div>
-        <h3>Rida Zareen</h3>
-        <div class="college-info">
-          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
-          <span class="college-name">Pallavi Engineering College</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/rida-zareen-b274b5371?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Swapanth Kumar.jpeg" alt="Swapanth Kumar">
-        </div>
-        <h3>Swapanth Kumar</h3>
-        <div class="college-info">
-          <img src="college_logo/Brilliant institute of engineering and technology.jpeg" alt="Brilliant Institute of Engineering and Technology" class="college-logo">
-          <span class="college-name">Brilliant Institute of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/akarapu-swapanth-270b32347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Mahanandi Rajini Yadav.jpg" alt="Mahanandi Rajini Yadav">
-        </div>
-        <h3>Mahanandi Rajini Yadav</h3>
-        <div class="college-info">
-          <img src="college_logo/Rajeev Gandhi Memorial College of Engineering and Technology.jpeg" alt="Rajeev Gandhi Memorial College of Engineering and Technology" class="college-logo">
-          <span class="college-name">Rajeev Gandhi Memorial College of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://https://www.linkedin.com/in/mahanandi-rajini-yadav-49710a357?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Vaishnavi.jpg" alt="Vaishnavi">
-        </div>
-        <h3>Vaishnavi</h3>
-        <div class="college-info">
-          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
-          <span class="college-name">Pallavi Engineering College</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/https://www.linkedin.com/in/vaishnavi1109" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Ranga Sai Jayanth.jpg" alt="Ranga Sai Jayanth">
-        </div>
-        <h3>Ranga Sai Jayanth</h3>
-        <div class="college-info">
-          <img src="college_logo/Rajeev Gandhi Memorial College of Engineering and Technology.jpeg" alt="Rajeev Gandhi Memorial College of Engineering and Technology" class="college-logo">
-          <span class="college-name">Rajeev Gandhi Memorial College of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://https://https://www.linkedin.com/in/ranga-sai-jayanth-6ba149342?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      <!-- new people -->
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Kamran Askari.jpeg" alt="Kamran Askari">
-        </div>
-        <h3>Kamran Askari</h3>
-        <div class="college-info">
-          <img src="college_logo/ST. JOSEPH'S DEGREE & PG COLLEGE.jpeg" alt="ST. JOSEPH'S DEGREE & PG COLLEGE" class="college-logo">
-          <span class="college-name">ST. JOSEPH'S DEGREE & PG COLLEGE</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/kamran-askari-297486299/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Hima varsha.jpeg" alt="Hima varsha">
-        </div>
-        <h3>Hima varsha</h3>
-        <div class="college-info">
-          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
-          <span class="college-name">Pallavi Engineering College</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/hima-varsha-1aba7a3bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Adhil M.jpg" alt="Adhil M">
-        </div>
-        <h3>Adhil M</h3>
-        <div class="college-info">
-          <img src="college_logo/K.S.Rangasamy College of Technology.jpg" alt="K.S.Rangasamy College of Technology" class="college-logo">
-          <span class="college-name">K.S.Rangasamy College of Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/adhil-m-60761b37b" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <!-- Duplicated set for seamless scrolling -->
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Shreya Yadav.jpg" alt="Shreya Yadav">
-        </div>
-        <h3>Shreya Yadav</h3>
-        <div class="college-info">
-          <img src="college_logo/Jaypee institute of information technology.jpg" alt="Jaypee Institute of Information Technology" class="college-logo">
-          <span class="college-name">Jaypee Institute of Information Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/shreya-yadav-/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/KOMMA NITHYANANDHA REDDY.jpg" alt="Komma Nithyanandha Reddy">
-        </div>
-        <h3>Komma Nithyanandha Reddy</h3>
-        <div class="college-info">
-          <img src="college_logo/KL university.jpg" alt="KL University" class="college-logo">
-          <span class="college-name">KL University</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/nandhareddy/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Meera Padala.jpeg" alt="Meera Padala">
-        </div>
-        <h3>Meera Padala</h3>
-        <div class="college-info">
-          <img src="college_logo/Geethanjali college of engineering and technology.jpeg" alt="Geethanjali College of Engineering and Technology" class="college-logo">
-          <span class="college-name">Geethanjali College of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/meera-padala-bab86128a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Rida Zareen.jpg" alt="Rida Zareen">
-        </div>
-        <h3>Rida Zareen</h3>
-        <div class="college-info">
-          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
-          <span class="college-name">Pallavi Engineering College</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/rida-zareen-b274b5371?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Swapanth Kumar.jpeg" alt="Swapanth Kumar">
-        </div>
-        <h3>Swapanth Kumar</h3>
-        <div class="college-info">
-          <img src="college_logo/Brilliant institute of engineering and technology.jpeg" alt="Brilliant Institute of Engineering and Technology" class="college-logo">
-          <span class="college-name">Brilliant Institute of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/akarapu-swapanth-270b32347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Mahanandi Rajini Yadav.jpg" alt="Mahanandi Rajini Yadav">
-        </div>
-        <h3>Mahanandi Rajini Yadav</h3>
-        <div class="college-info">
-          <img src="college_logo/Rajeev Gandhi Memorial College of Engineering and Technology.jpeg" alt="Rajeev Gandhi Memorial College of Engineering and Technology" class="college-logo">
-          <span class="college-name">Rajeev Gandhi Memorial College of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://https://www.linkedin.com/in/mahanandi-rajini-yadav-49710a357?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Vaishnavi.jpg" alt="Vaishnavi">
-        </div>
-        <h3>Vaishnavi</h3>
-        <div class="college-info">
-          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
-          <span class="college-name">Pallavi Engineering College</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/https://www.linkedin.com/in/vaishnavi1109" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-            <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Ranga Sai Jayanth.jpg" alt="Ranga Sai Jayanth">
-        </div>
-        <h3>Ranga Sai Jayanth</h3>
-        <div class="college-info">
-          <img src="college_logo/Rajeev Gandhi Memorial College of Engineering and Technology.jpeg" alt="Rajeev Gandhi Memorial College of Engineering and Technology" class="college-logo">
-          <span class="college-name">Rajeev Gandhi Memorial College of Engineering and Technology</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://https://https://www.linkedin.com/in/ranga-sai-jayanth-6ba149342?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <!-- new people -->
-      <!-- new people -->
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Kamran Askari.jpeg" alt="Kamran Askari">
-        </div>
-        <h3>Kamran Askari</h3>
-        <div class="college-info">
-          <img src="college_logo/ST. JOSEPH'S DEGREE & PG COLLEGE.jpeg" alt="ST. JOSEPH'S DEGREE & PG COLLEGE" class="college-logo">
-          <span class="college-name">ST. JOSEPH'S DEGREE & PG COLLEGE</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/kamran-askari-297486299/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-
-          <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Hima varsha.jpeg" alt="Hima varsha">
-        </div>
-        <h3>Hima varsha</h3>
-        <div class="college-info">
-          <img src="college_logo/pallavi engineering college.jpeg" alt="Pallavi Engineering College" class="college-logo">
-          <span class="college-name">Pallavi Engineering College</span>
-        </div>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/hima-varsha-1aba7a3bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="camp-amp/Mohammed Aqeel khan.jpg" alt="Mohammed Aqeel khan">
-        </div>
-        <h3>Mohammed Aqeel khan</h3>
-        <p>Campus Ambassador</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/aqeel2530" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-    <div class="ambassador">
-      <div class="ambassador-img">
-        <img src="camp-amp/Adhil M.jpg" alt="Adhil M">
-      </div>
-      <h3>Adhil M</h3>
-      <p>Campus Ambassador</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/adhil-m-60761b37b" class="social-btn"><i class="fa fa-linkedin"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Event Gallery Section START -->
-<section id="event-gallery" style="background:#fff;padding:60px 0 40px 0;width:100%;">
-  <h2 style="text-align:center;font-size:2.2rem;font-weight:700;color:#1c2e40;margin-bottom:8px;">Event Gallery</h2>
-  <p style="text-align:center;color:#666;font-size:1.1rem;margin-bottom:32px;">Capturing moments that inspire and connect our community.</p>
-  <div class="event-gallery-carousel-wrapper">
-    <div class="event-gallery-carousel" id="eventGalleryCarousel">
-      <img src="events/1.jpeg" alt="Event 1" class="event-gallery-img" />
-      <img src="events/2.jpeg" alt="Event 2" class="event-gallery-img" />
-      <img src="events/3.jpeg" alt="Event 3" class="event-gallery-img" />
-      <img src="events/4.jpeg" alt="Event 4" class="event-gallery-img" />
-      <img src="events/5.jpeg" alt="Event 5" class="event-gallery-img" />
-      <img src="events/6.jpeg" alt="Event 6" class="event-gallery-img" />
-      <img src="events/7.jpeg" alt="Event 7" class="event-gallery-img" />
-      <img src="events/8.jpeg" alt="Event 8" class="event-gallery-img" />
-      <img src="events/9.jpeg" alt="Event 9" class="event-gallery-img" />
-      <img src="events/11.jpeg" alt="Event 10" class="event-gallery-img" />
-      <img src="events/12.jpeg" alt="Event 11" class="event-gallery-img" />
-      <img src="events/13.jpeg" alt="Event 12" class="event-gallery-img" />
-      <img src="events/14.jpeg" alt="Event 13" class="event-gallery-img" />
-      <img src="events/15.jpeg" alt="Event 14" class="event-gallery-img" />
-    </div>
-  </div>
-</section>
-<style>
-.event-gallery-carousel-wrapper {
-  width: calc(320px * 2 + 24px); /* show exactly 2 images (2 widths + gap) */
-  max-width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-  padding: 0 0 10px 0;
-}
-.event-gallery-carousel {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  transition: transform 1.2s ease-in-out;
-  will-change: transform;
-}
-.event-gallery-img {
-  width: 320px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  background: #f7f7f7;
-  flex-shrink: 0;
-  border: 2px solid #fff;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.event-gallery-img:hover {
-  box-shadow: 0 6px 24px rgba(255,111,0,0.13);
-  transform: scale(1.04);
-}
-@media (max-width: 700px) {
-  .event-gallery-img { width: 220px; height: 140px; }
-  /* Adjust wrapper to show 1 smaller image */
-  .event-gallery-carousel-wrapper { width: 220px; max-width: 100%; }
-  .event-gallery-carousel { gap: 12px; }
-}
-</style>
-<script>
-// Event Gallery Carousel Auto-scroll
-(function() {
-  const carousel = document.getElementById('eventGalleryCarousel');
-  if (!carousel) return;
-  const images = Array.from(carousel.children);
-  // Duplicate originals for seamless looping
-  images.forEach(img => carousel.appendChild(img.cloneNode(true)));
-
-  const isMobile = window.innerWidth <= 700;
-  const step = isMobile ? 1 : 2;
-  const gap = isMobile ? 12 : 24;
-  const imgWidth = images[0].offsetWidth;
-  const slideDistance = imgWidth + gap;
-
-  let current = 0;
-  const total = images.length; // original count only
-
-  function showImage(idx) {
-    carousel.style.transform = `translateX(-${idx * slideDistance}px)`;
-  }
-
-  const interval = setInterval(() => {
-    current += step;
-    showImage(current);
-    if (current >= total) {
-      // When we reach or exceed the original set, reset seamlessly
-      setTimeout(() => {
-        carousel.style.transition = 'none';
-        showImage(0);
-        current = 0;
-        // Force reflow to re-enable transition
-        void carousel.offsetWidth;
-        carousel.style.transition = '';
-      }, 1200);
-    }
-  }, 3200);
-})();
-</script>
-<!-- Event Gallery Section END -->
-<!-- Community Stats Section -->
-<section class="community-stats-section">
-  <h2 class="community-title">Our Growing Community</h2>
-  <div class="community-stats-container">
-    <div class="community-stat-card">
-      <div class="community-stat-icon">👥</div>
-      <div class="community-stat-number" data-target="4500">0</div>
-      <div class="community-stat-label">Community Members</div>
-    </div>
-    <div class="community-stat-card">
-      <div class="community-stat-icon">🎓</div>
-      <div class="community-stat-number" data-target="1000">0</div>
-      <div class="community-stat-label">Internships Offered</div>
-    </div>
-    <div class="community-stat-card">
-      <div class="community-stat-icon">📅</div>
-      <div class="community-stat-number" data-target="35">0</div>
-      <div class="community-stat-label">Events Conducted</div>
-    </div>
-  </div>
-</section>
-
-<style>
-.community-stats-section {
-  background: transparent;
-  padding: 60px 0 40px 0;
-  width: 100%;
-}
-.community-title {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1c2e40;
-  margin-bottom: 32px;
-  letter-spacing: -1px;
-}
-.community-stats-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.community-stat-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  padding: 36px 48px 32px 48px;
-  min-width: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.2s;
-  border: 1.5px solid #f3f3f3;
-}
-.community-stat-card:hover {
-  box-shadow: 0 6px 24px rgba(255,111,0,0.10);
-  border-color: #ff6f00;
-}
-.community-stat-icon {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-  color: #ff6f00;
-}
-.community-stat-number {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #ff6f00;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-  position: relative;
-  display: inline-block;
-  text-shadow: 0 2px 16px rgba(255,111,0,0.18), 0 1px 0 #fff;
-  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
-  background: linear-gradient(135deg, #fffbe6 70%, transparent 100%);
-  border-radius: 18px;
-  padding: 6px 14px;
-}
-.community-stat-number.animated {
-  animation: stat-pop 0.5s cubic-bezier(.4,2,.6,1);
-  transform: scale(1.15);
-  box-shadow: 0 6px 32px rgba(255,111,0,0.18);
-}
-@keyframes stat-pop {
-  0% { transform: scale(1); }
-  60% { transform: scale(1.22); }
-  100% { transform: scale(1.15); }
-}
-.community-stat-plus {
-  font-size: 1.3rem;
-  vertical-align: super;
-  color: #ff6f00;
-  margin-left: 1px;
-  font-weight: 700;
-}
-.community-stat-label {
-  font-size: 1.1rem;
-  color: #1c2e40;
-  font-weight: 500;
-  text-align: center;
-}
-@media (max-width: 900px) {
-  .community-stats-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-  }
-  .community-stat-card {
-    min-width: 220px;
-    padding: 28px 20px 24px 20px;
-  }
-}
-</style>
-<script>
-// Animated count-up for community stats
-function animateCountUp(el, target, duration = 1800) {
-  let start = 0;
-  let startTime = null;
-  function animateStep(timestamp) {
-    if (!startTime) startTime = timestamp;
-    const progress = Math.min((timestamp - startTime) / duration, 1);
-    el.textContent = Math.floor(progress * (target - start) + start).toLocaleString();
-    if (progress < 1) {
-      requestAnimationFrame(animateStep);
-    } else {
-      el.innerHTML = target.toLocaleString() + '<span class="community-stat-plus">+</span>';
-      el.classList.add('animated');
-      setTimeout(() => el.classList.remove('animated'), 600);
-    }
-  }
-  requestAnimationFrame(animateStep);
-}
-
-function handleStatsAnimation() {
-  const stats = document.querySelectorAll('.community-stat-number');
-  let triggered = false;
-  function onScroll() {
-    if (triggered) return;
-    const section = document.querySelector('.community-stats-section');
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      stats.forEach(stat => {
-        const target = parseInt(stat.getAttribute('data-target'), 10);
-        animateCountUp(stat, target);
-      });
-      triggered = true;
-      window.removeEventListener('scroll', onScroll);
-    }
-  }
-  window.addEventListener('scroll', onScroll);
-  onScroll(); // in case already in view
-}
-window.addEventListener('DOMContentLoaded', handleStatsAnimation);
-</script>
-<section id="events" class="hero">
-  <h2>Upcoming Events & Webinars</h2>
-  <p>Join sessions with industry leaders. Stay ahead with TaskVeda.</p>
-  <a href="mailto:info@taskveda.in">Get Details</a>
-</section>
-<!-- Team Section START -->
-<section id="team" class="team-section">
-  <h2 class="team-title">Meet Our Team</h2>
-  <p class="team-subtitle">The passionate individuals behind TaskVeda.</p>
-  <h3 class="team-heading">Founders</h3>
-  <div class="team-container">
-    <div class="team-card">
-      <div class="team-img">
-        <img src="team/Rohit Gallipalli.jpeg" alt="Rohit Gallipalli">
-      </div>
-      <h4>Rohit Gallipalli</h4>
-      <p class="team-role">Founder & CEO</p>
-      <p class="team-desc">Rohit Gallipalli is the visionary behind TaskVeda — a student-first platform built to bridge the gap between learning and real-world experience. With a deep understanding of student struggles, he launched TaskVeda to provide meaningful internships, day jobs, and freelancing gigs that build both skills and confidence.<br/><br/>Under his leadership, TaskVeda has empowered over 3,500 students through internships and 30+ events, creating a fast-growing ecosystem of action-oriented learners across India.</p>
-      <div class="team-social">
-        <a href="https://www.linkedin.com/in/rohit-gallipalli-ab38b6286/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        <a href="mailto:info@taskveda.in" class="social-btn"><i class="fa fa-envelope"></i></a>
-      </div>
-    </div>
-  </div>
-  <!-- Core Team Carousel -->
-  <h3 class="team-heading">Core Team</h3>
-  <div class="ambassador-carousel core-carousel">
-    <div class="ambassador-container">
-      <!-- Core team members -->
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Uriti Hrushikesh Karthik.jpeg" alt="Uriti Hrushikesh Karthik">
-        </div>
-        <h3>Uriti Hrushikesh Karthik</h3>
-        <p>Lead Trainer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/uriti-hrushikesh-karthik" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Tadipetti Pavani.jpeg" alt="Tadipetti Pavani">
-        </div>
-        <h3>Tadipetti Pavani</h3>
-        <p>Mentor & Trainer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/pavanitadipetti" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/vishal.jpeg" alt="Vishal Rahletia">
-        </div>
-        <h3>Vishal Rahletia</h3>
-        <p>Growth Manager</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/vishal-rahletia-99b9493ab/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Bhavishya Gundlapalli.png" alt="Bhavishya Gundlapalli">
-        </div>
-        <h3>Bhavishya Gundlapalli</h3>
-        <p>Operations Designer</p>
-        <div class="social-links">
-          <a href="https://https://www.linkedin.com/in/gundlapalli-bhavishya-1a9a3b379" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Tejaswini.jpeg" alt="Tejaswini">
-        </div>
-        <h3>Tejaswini</h3>
-        <p>Digital Marketing</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/j-tejaswini-053648284?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Sanhita Andhavaram.jpeg" alt="Sanhita Andhavaram">
-        </div>
-        <h3>Sanhita Andhavaram</h3>
-        <p>operations and IT Head</p>
-        <div class="social-links">
-          <a href="www.linkedin.com/in/sanhita-andhavaram-821450364" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Yogita Jadhav.jpeg" alt="Yogita Jadhav">
-        </div>
-        <h3>Yogita Jadhav</h3>
-        <p>Content Creator</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/yogita-jadhav-796914408/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Bhava Sathwika.jpeg" alt="Bhava Sathwika">
-        </div>
-        <h3>Bhava Sathwika</h3>
-        <p>Designer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/bhava-sathwika-surati-06068137b" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Cettypalli Sadhana Reddy.jpg" alt="Cettypalli Sadhana Reddy">
-        </div>
-        <h3>Cettypalli Sadhana Reddy</h3>
-        <p>Marketing Head</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/c-l-sadhana-reddy-664438338" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Bhavya Dhulipalla.JPG" alt="Bhavya Dhulipalla">
-        </div>
-        <h3>Bhavya Dhulipalla</h3>
-        <p>Content Creator</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/bhavya-dhulipala-8986ba2a2" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-            <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Deepthimayi Uppithala.jpeg" alt="Deepthimayi Uppithala">
-        </div>
-        <h3>Deepthimayi Uppithala</h3>
-        <p>Designer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/deepthi-mayi-uppithala-4205b037b? utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-            <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Yasaswini.jpeg" alt="Yasaswini Nara">
-        </div>
-        <h3>Yasaswini Nara</h3>
-        <p>Designer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/yasaswini-reddy-nara-648165372" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      <!-- Duplicate set for seamless scroll -->
-            <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Uriti Hrushikesh Karthik.jpeg" alt="Uriti Hrushikesh Karthik">
-        </div>
-        <h3>Uriti Hrushikesh Karthik</h3>
-        <p>Lead Trainer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/uriti-hrushikesh-karthik" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Tadipetti Pavani.jpeg" alt="Tadipetti Pavani">
-        </div>
-        <h3>Tadipetti Pavani</h3>
-        <p>Mentor & Trainer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/pavanitadipetti" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/vishal.jpeg" alt="Vishal Rahletia">
-        </div>
-        <h3>Vishal Rahletia</h3>
-        <p>Growth Manager</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/vishal-rahletia-99b9493ab/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Bhavishya Gundlapalli.png" alt="Bhavishya Gundlapalli">
-        </div>
-        <h3>Bhavishya Gundlapalli</h3>
-        <p>Operations Designer</p>
-        <div class="social-links">
-          <a href="https://https://www.linkedin.com/in/gundlapalli-bhavishya-1a9a3b379" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Tejaswini.jpeg" alt="Tejaswini">
-        </div>
-        <h3>Tejaswini</h3>
-        <p>Digital Marketing</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/j-tejaswini-053648284?utm_source=share_via&utm_content=profile&utm_medium=member_android"class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Sanhita Andhavaram.jpeg" alt="Sanhita Andhavaram">
-        </div>
-        <h3>Sanhita Andhavaram</h3>
-        <p>operations and IT Head</p>
-        <div class="social-links">
-          <a href="www.linkedin.com/in/sanhita-andhavaram-821450364" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Yogita Jadhav.jpeg" alt="Yogita Jadhav">
-        </div>
-        <h3>Yogita Jadhav</h3>
-        <p>Content Creator</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/yogita-jadhav-796914408/" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/>Bhava Sathwika.jpeg" alt="Bhava Sathwika">
-        </div>
-        <h3>Bhava Sathwika</h3>
-        <p>Designer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/bhava-sathwika-surati-06068137b" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Cettypalli Sadhana Reddy.jpg" alt="Cettypalli Sadhana Reddy">
-        </div>
-        <h3>Cettypalli Sadhana Reddy</h3>
-        <p>Marketing Head</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/c-l-sadhana-reddy-664438338" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      
-      <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Bhavya Dhulipalla.JPG" alt="Bhavya Dhulipalla">
-        </div>
-        <h3>Bhavya Dhulipalla</h3>
-        <p>Content Creator</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/bhavya-dhulipala-8986ba2a2" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-            <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Deepthimayi Uppithala.jpeg" alt="Deepthimayi Uppithala">
-        </div>
-        <h3>Deepthimayi Uppithala</h3>
-        <p>Designer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/deepthi-mayi-uppithala-4205b037b? utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-
-            <div class="ambassador">
-        <div class="ambassador-img">
-          <img src="team/Yasaswini Nara.jpeg" alt="Yasaswini Nara">
-        </div>
-        <h3>Yasaswini Nara</h3>
-        <p>Designer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/yasaswini-reddy-nara-648165372" class="social-btn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Core Team Carousel -->
-</section>
-<style>
-.team-section {
-  background: transparent;
-  padding: 60px 0 40px 0;
-  width: 100%;
-}
-.team-title {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1c2e40;
-  margin-bottom: 8px;
-}
-.team-subtitle {
-  text-align: center;
-  color: #666;
-  font-size: 1.1rem;
-  margin-bottom: 32px;
-}
-.team-heading {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1c2e40;
-  margin-top: 48px;
-  margin-bottom: 24px;
-}
-.team-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.team-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  padding: 30px;
-  max-width: 520px;
-  flex: 1 1 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1.5px solid #f3f3f3;
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.team-card:hover {
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
-}
-.team-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 16px;
-  border: 3px solid #ff6f00;
-}
-.team-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.team-card h4 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1c2e40;
-  margin-bottom: 4px;
-}
-.team-role {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 16px;
-}
-.team-desc {
-  text-align: center;
-  color: #1c2e40;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
-}
-.team-social {
-  display: flex;
-  gap: 15px;
-  margin-top: auto;
-}
-@media (max-width: 600px) {
-  .team-card {
-    max-width: 100%;
-    padding: 20px;
-  }
-  .team-container {
-    padding: 0 20px;
-  }
-}
-</style>
-
-<!-- FAQ Section -->
-<section class="faq-section">
-  <h2 class="faq-title">Frequently Asked Questions</h2>
-  <p class="faq-subtitle">Find answers to common questions about TaskVeda.</p>
-  
-  <div class="faq-container">
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>What is TaskVeda?</h3>
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-answer">
-        <p>TaskVeda is a versatile platform that provides day jobs, internships, and freelancing opportunities to students and young professionals. Our mission is to bridge the gap between learning and earning by offering real-world, skill-based experiences.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>Who can use TaskVeda?</h3>
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-answer">
-        <p>TaskVeda is open to students, fresh graduates, freelancers, and job seekers from all backgrounds. Whether you're just starting out or looking to enhance your skills, TaskVeda has opportunities tailored for you.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>What types of internships does TaskVeda offer?</h3>
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-answer">
-        <p>We offer beginner-friendly, project-based internships in fields like Python, Web Development, Cloud Computing, Java Full Stack, and more. Each program includes mentorship, hands-on tasks, and a certificate upon completion.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>Does TaskVeda provide freelancing opportunities?</h3>
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-answer">
-        <p>Yes. Apart from internships, TaskVeda connects skilled individuals with real-time freelance projects in tech, marketing, design, and content writing — helping them earn while they learn.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>How do I get started with TaskVeda?</h3>
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-answer">
-        <p>Simply visit www.taskveda.in, sign up with your basic details, and start exploring available opportunities. Once registered, you can apply for internships, participate in events, or join freelance projects.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>What makes TaskVeda unique?</h3>
-        <span class="faq-toggle">+</span>
-      </div>
-      <div class="faq-answer">
-        <p>Unlike other platforms, TaskVeda is community-driven, beginner-friendly, and action-oriented. We focus on career acceleration through hands-on learning, real projects, and consistent support — all within one ecosystem.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-.faq-section {
-  background: transparent;
-  padding: 80px 20px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.faq-section::before,
-.faq-section::after {
-  content: '';
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(255,111,0,0.05) 0%, rgba(255,111,0,0.02) 100%);
-  z-index: 0;
-}
-
-.faq-section::before {
-  top: -100px;
-  left: -100px;
-}
-
-.faq-section::after {
-  bottom: -100px;
-  right: -100px;
-  background: linear-gradient(225deg, rgba(0,170,255,0.05) 0%, rgba(0,170,255,0.02) 100%);
-}
-
-.faq-title {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #1c2e40;
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 1;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.faq-subtitle {
-  text-align: center;
-  color: #666;
-  font-size: 1.2rem;
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 1;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.faq-container {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 20px;
-  padding: 20px;
-}
-
-.faq-item {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  margin-bottom: 0;
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  position: relative;
-}
-
-.faq-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, #ff6f00, #ff9500);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.faq-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-}
-
-.faq-item.active {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-}
-
-.faq-item.active::before {
-  opacity: 1;
-}
-
-.faq-question {
-  background: transparent;
-  padding: 25px 30px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.3s ease;
-}
-
-.faq-question h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #1c2e40;
-  margin: 0;
-  transition: color 0.3s ease;
-  padding-right: 40px;
-  line-height: 1.4;
-}
-
-.faq-item:hover .faq-question h3 {
-  color: #ff6f00;
-}
-
-.faq-toggle {
-  position: relative;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #f0f0f0;
-  color: #ff6f00;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  flex-shrink: 0;
-}
-
-.faq-item.active .faq-toggle {
-  background: #ff6f00;
-  color: #fff;
-  transform: rotate(45deg);
-}
-
-.faq-answer {
-  background: transparent;
-  padding: 0 30px;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  opacity: 1;
-  padding-bottom: 25px;
-}
-
-.faq-answer p {
-  margin: 0;
-  padding: 20px 0;
-  color: #666;
-  line-height: 1.8;
-  font-size: 1.02rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .faq-section {
-    padding: 60px 15px;
-  }
-  
-  .faq-title {
-    font-size: 2rem;
-  }
-  
-  .faq-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-  }
-  
-  .faq-container {
-    padding: 10px;
-  }
-  
-  .faq-question {
-    padding: 20px;
-  }
-  
-  .faq-question h3 {
-    font-size: 1.05rem;
-    padding-right: 30px;
-  }
-  
-  .faq-answer {
-    padding: 0 20px;
-  }
-  
-  .faq-answer p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-}
-
-/* Add animation for opening/closing */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.faq-item.active .faq-answer p {
-  animation: slideDown 0.4s ease forwards;
-}
-</style>
-
-<script>
-// Enhanced FAQ Toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
-    
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      
-      // Close all other items with smooth animation
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item && otherItem.classList.contains('active')) {
-          otherItem.classList.remove('active');
-          const otherAnswer = otherItem.querySelector('.faq-answer');
-          otherAnswer.style.maxHeight = '0';
-          otherAnswer.style.opacity = '0';
-        }
-      });
-      
-      // Toggle current item with smooth animation
-      if (!isActive) {
-        item.classList.add('active');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        answer.style.opacity = '1';
-      } else {
-        item.classList.remove('active');
-        answer.style.maxHeight = '0';
-        answer.style.opacity = '0';
-      }
-    });
-  });
-  
-  // Add hover effect for better interactivity
-  faqItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      if (!item.classList.contains('active')) {
-        item.style.transform = 'translateY(-2px)';
-      }
-    });
-    
-    item.addEventListener('mouseleave', () => {
-      if (!item.classList.contains('active')) {
-        item.style.transform = 'translateY(0)';
-      }
-    });
-  });
-});
-</script>
-
-<!-- Enhanced Footer Section START -->
-<section class="tv-footer">
-  <div class="tv-footer-container">
-    <!-- Brand & Socials -->
-    <div class="tv-footer-brand">
-      <div class="tv-brand-row">
-        <img src="Taskveda_logo_footer.png" alt="TaskVeda Logo" class="tv-logo" />
-        <span class="tv-brand-name">TaskVeda</span>
-      </div>
-      <p class="tv-tagline">Connecting students, empowering futures. Join our vibrant community today!</p>
-      <div class="tv-social-icons">
-        <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L" target="_blank" aria-label="WhatsApp" class="fa fa-whatsapp"></a>
-        <a href="https://www.instagram.com/taskveda/" target="_blank" aria-label="Instagram" class="fa fa-instagram"></a>
-        <a href="https://www.linkedin.com/company/taskveda/" target="_blank" aria-label="LinkedIn" class="fa fa-linkedin"></a>
-        <a href="https://www.youtube.com/@taskveda" target="_blank" aria-label="YouTube" class="fa fa-youtube-play"></a>
-      </div>
-    </div>
-    <!-- Contact -->
-    <div class="tv-footer-contact">
-      <h3>Contact</h3>
-      <p>Email: <a href="mailto:info@taskveda.in" style="color:orange;">info@taskveda.in</a></p>
-      <p>WhatsApp: <a href="https://wa.me/919966367583" target="_blank" style="color:orange;">+91 9966367583</a></p>
-    </div>
-  </div>
-</section>
-<!-- Enhanced Footer Section END -->
-<style>
-.tv-footer {
-  background: #0f1624 !important;
-  color: #f1f1f1;
-  padding: 60px 20px;
-}
-
-.tv-footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: space-between;
-}
-
-.tv-logo {
-  height: 50px;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
-}
-
-.tv-tagline {
-  max-width: 320px;
-  font-size: 0.95rem;
-  margin: 10px 0 20px;
-  color: #d1d7e0;
-}
-
-.tv-social-icons {
-  display: flex;
-  gap: 18px;
-}
-
-.tv-social-icons a {
-  color: #d1d7e0;
-  font-size: 1.5rem;
-  transition: opacity 0.3s ease;
-  text-decoration: none !important;
-}
-
-.tv-social-icons a:hover {
-  color: #ff6f00;
-  text-decoration: none !important;
-}
-
-/* Brand row styles */
-.tv-brand-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.tv-brand-name {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-/* footer bar update */
-footer {
-  background: #0f1624 !important;
-  color: #ffffff !important;
-  border-top: none;
-}
-
-footer a { color:#ffffff; text-decoration:underline; }
-</style>
-<footer>
-  <p>© 2024 TaskVeda. All rights reserved. TaskVeda is a registered entity under MSME, Government of India.</p>
-  <div style="text-align:center; margin-top:10px;">
-
-  <a href="internships-hyderabad.html" style="color:#ffffff; font-size:12px;">
-    Internships in Hyderabad
-  </a> |
-
-  <a href="internships-bangalore.html" style="color:#ffffff; font-size:12px;">
-    Bangalore
-  </a> |
-
-  <a href="internships-telangana.html" style="color:#ffffff; font-size:12px;">
-    Telangana
-  </a> |
-
-  <a href="internships-andhra-pradesh.html" style="color:#ffffff; font-size:12px;">
-    Andhra Pradesh
-  </a> |
-
-  <a href="internships-near-me.html" style="color:#ffffff; font-size:12px;">
-    Near Me
-  </a>
-    
-<a href="internships-for-students.html" style="color:#ffffff; font-size:12px;">
-  Internships for Students
-</a>
-</div>
     </a>
+    <nav class="nav-links">
+      <a href="#" class="active" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#internships">Internships</a>
+      <a href="#webinars">Webinars</a>
+      <a href="#community">Community</a>
+      <a href="#testimonials">Testimonials</a>
+    </nav>
+    <div class="nav-r">
+      <button class="theme-btn" id="themeBtn"><span id="themeIcon">🌙</span></button>
+      <a href="#" class="btn btn-primary btn-sm" onclick="openRegisterModal();return false;">Get Started</a>
+      <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="closeMobileMenu();window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a>
+  <a href="#programs" onclick="closeMobileMenu()">Programs</a>
+  <a href="#internships" onclick="closeMobileMenu()">Internships</a>
+  <a href="#webinars" onclick="closeMobileMenu()">Webinars</a>
+  <a href="#community" onclick="closeMobileMenu()">Community</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
+  <a href="#certificates" onclick="closeMobileMenu()">Certificates</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="#" class="btn btn-primary btn-sm" onclick="closeMobileMenu();openRegisterModal();return false;" style="text-align:center;">Get Started →</a>
+</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Empowering students. Building futures.</div>
+      <h1>Real Opportunities.<br>Real Experience.<br><span class="accent">Real You.</span></h1>
+      <p class="lead">TaskVeda is a student-driven platform connecting students with internships, programs, and real-world projects to build skills, grow networks, and launch careers.</p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn btn-primary">Explore Programs <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#" class="btn btn-secondary" onclick="openRegisterModal();return false;">Get Started</a>
+      </div>
+      <div class="hero-social">
+        <div class="avatar-stack">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt=""><img src="https://randomuser.me/api/portraits/men/32.jpg" alt=""><img src="https://randomuser.me/api/portraits/men/65.jpg" alt=""><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+        </div>
+        <div><div class="stars">★★★★★</div><div class="rating"><strong>4.9/5</strong> from 500+ reviews</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-ring"></div>
+      <div class="hero-orb"></div>
+      <div class="hero-photo-frame"><img src="images/Header01.jpeg" alt="Students"></div>
+      <div class="float-card fc-1"><span class="fc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><div><div class="fc-num">2,000+</div><div class="fc-label">Internships</div></div></div>
+      <div class="float-card fc-2"><span class="fc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><div><div class="fc-num">1,000+</div><div class="fc-label">Projects</div></div></div>
+      <div class="float-card fc-3"><span class="fc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span><div><div class="fc-num">10K+</div><div class="fc-label">Students</div></div></div>
+    </div>
+  </div>
+</section>
+<!-- TRUST BAR -->
+<section class="trust">
+  <div class="wrap"><div class="trust-label">Trusted by students &amp; colleges across India</div></div>
+  <div class="trust-viewport"><div class="trust-track" id="trustTrack"></div></div>
+</section>
+<!-- OFFER -->
+<section class="section" style="padding-bottom:40px;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">What we offer</div><h2>Everything you need.<span class="accent">All in one place.</span></h2></div>
+      <p>From internships to mentorship, from projects to placements — TaskVeda is your growth partner at every step.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card reveal"><div class="offer-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div><h3>Live Cohorts</h3><p>Industry-focused cohorts with live classes, real projects, and hands-on mentorship every week.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div><h3>Internships</h3><p>Real internships in top domains that give you practical exposure you can't get in a classroom.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Real Projects</h3><p>Build portfolio-worthy projects designed to make your resume stand out to recruiters.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Community</h3><p>Join a vibrant community of ambitious learners, alumni, and mentors who push you forward.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><h3>Placement Support</h3><p>Resume reviews, mock interviews, aptitude prep, and direct access to job opportunities.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></div><h3>Certificates</h3><p>Industry-recognized certificates that add credibility and weight to your profile.</p></div>
+    </div>
+  </div>
+</section>
+<!-- HOW IT WORKS -->
+<section class="section how" style="padding-top:80px;">
+  <div class="wrap">
+    <div class="section-head center reveal"><div class="eyebrow">How it works</div><h2>Four steps from student<br>to industry-ready professional.</h2></div>
+    <div class="how-grid">
+      <div class="how-step reveal"><div class="how-num">01</div><h3>Apply &amp; get matched</h3><p>Tell us your goals and get matched to the right program for your skill level and career track.</p></div>
+      <div class="how-step reveal"><div class="how-num">02</div><h3>Learn live</h3><p>Attend live classes with industry mentors, covering the tools and skills companies actually want.</p></div>
+      <div class="how-step reveal"><div class="how-num">03</div><h3>Build real projects</h3><p>Apply what you learn to real, portfolio-ready projects reviewed by working professionals.</p></div>
+      <div class="how-step reveal"><div class="how-num">04</div><h3>Get placed</h3><p>Get interview-ready with mock rounds, resume support, and direct introductions to hiring partners.</p></div>
+    </div>
+  </div>
+</section>
+<!-- PROGRAMS -->
+<section class="section programs-sec" id="programs">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">Programs & Bootcamps</div><h2>Learn. Build.<span class="accent">Get Certified.</span></h2></div><p>Choose from our industry-focused programs designed to take you from beginner to job-ready.</p></div>
+    <div class="prog-grid reveal" id="programsGrid"></div>
+  </div>
+</section>
+<!-- INTERNSHIPS -->
+<section class="section int-sec" id="internships">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">Internships</div><h2>Real Work.<span class="accent">Real Experience.</span></h2></div><p>Kickstart your career with hands-on internships in your chosen domain.</p></div>
+    <div class="int-list reveal" id="internshipList"></div>
+  </div>
+</section>
+<!-- CERTIFICATES -->
+<section class="section cert-sec" id="certificates">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">Certifications</div><h2>Earn Certificates<span class="accent">That Matter.</span></h2></div><p>AI-powered certificate generation for every program, webinar, and internship completed.</p></div>
+    <div class="cert-wrap reveal">
+      <div class="cert-left"><h3>AI-Powered Certificate Generation</h3><p>Complete a program, attend a webinar, or finish an internship — your certificate is automatically generated, verified, and ready to share on LinkedIn.</p><div class="cert-steps"><div class="cert-step"><div class="step-num">1</div><div class="step-text">Complete a TaskVeda program, bootcamp, or webinar</div></div><div class="cert-step"><div class="step-num">2</div><div class="step-text">Submit your attendance or final project</div></div><div class="cert-step"><div class="step-num">3</div><div class="step-text">Certificate auto-generated with a unique verification ID</div></div><div class="cert-step"><div class="step-num">4</div><div class="step-text">Download PDF and share instantly on LinkedIn</div></div></div><a href="certify.html" class="btn btn-primary" style="width:fit-content;">🏅 Access Certificate Portal →</a></div>
+      <div class="cert-right"><div class="cert-card"><div class="cert-badge-wrap">🏅</div><h4>Certificate of Completion</h4><p>Python Development Bootcamp<br>Issued by TaskVeda · 2025</p><div class="cert-id">ID: TV-2025-PY-001</div></div></div>
+    </div>
+  </div>
+</section>
+<!-- WEBINARS -->
+<section class="section" id="webinars" style="padding-bottom:40px;">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">Weekly live webinar series</div><h2>An hour of clarity.<span class="accent">A career in motion.</span></h2></div><p>Join students across India in live sessions built to sharpen your skills, open doors, and get you closer to the offer you actually want.</p></div>
+    <div class="webinar-feature reveal">
+      <div><span class="webinar-tag"><span class="dot"></span> This Sunday · 07:00 PM IST</span><h3>How to get internships &amp; build a strong resume</h3><p>A complete roadmap for landing internships in 2026 — the exact resume structure, outreach templates, and interview framing that works.</p><div class="webinar-meta"><div><strong>60 min</strong>Live session</div><div><strong>Free</strong>E-Certificate included</div><div><strong>Q&amp;A</strong>Open floor at the end</div></div><div class="webinar-host"><img src="https://i.pravatar.cc/100?img=13" alt=""><div><div class="name">Rohit Gallipalli</div><div class="role">Founder &amp; CEO, TaskVeda</div></div></div><a href="#" class="btn btn-primary" onclick="openRegisterModal();return false;">Reserve your seat <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="webinar-visual"><div class="glow"></div><div class="rings"><div class="webinar-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+    </div>
+    <div class="webinar-list reveal" id="webinarList"></div>
+  </div>
+</section>
+<!-- AMBASSADORS -->
+<section class="section amb-sec" id="ambassadors">
+  <div class="wrap">
+    <div class="section-head center reveal"><div class="eyebrow">Campus Ambassadors</div><h2>Faces of<span class="accent">TaskVeda.</span></h2><p>Meet the student leaders representing TaskVeda across campuses nationwide.</p></div>
+    <div class="auto-scroll-wrap reveal"><div class="auto-scroll-track" id="ambGrid"></div></div>
+    <div style="text-align:center;margin-top:32px;"><button class="btn-outline" onclick="openAmbassadorForm()">🌟 Become a Campus Ambassador →</button></div>
+  </div>
+</section>
+<!-- COMMUNITY -->
+<section class="section comm-sec" id="community">
+  <div class="wrap community-grid">
+    <div class="community-copy reveal">
+      <div class="eyebrow">Live community</div><h2>The people behind<br>every <span class="accent">opportunity.</span></h2><p class="lead">Weekly webinars, verified internship alerts, and a community of 10,000+ engineering students helping each other get placed.</p>
+      <a href="https://chat.whatsapp.com/Bprbur2Jr4l4z97eb3Czex?mode=gi_t" target="_blank" class="btn btn-primary">Join WhatsApp Community <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="community-avatars"><div class="wa-avatar-stack"><svg class="av" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#D9A066"/><circle cx="20" cy="16" r="7.2" fill="#3B2418"/><path d="M6 36c0-8.5 6.3-14 14-14s14 5.5 14 14" fill="#3B2418"/></svg><svg class="av" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#8D5524"/><circle cx="20" cy="16" r="7.2" fill="#1F140C"/><path d="M6 36c0-8.5 6.3-14 14-14s14 5.5 14 14" fill="#1F140C"/></svg><svg class="av" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#E8B384"/><circle cx="20" cy="15.5" r="7.4" fill="#2B1B10"/><path d="M6 36c0-8.5 6.3-14 14-14s14 5.5 14 14" fill="#2B1B10"/></svg><svg class="av" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#C68642"/><circle cx="20" cy="16" r="7.2" fill="#241609"/><path d="M6 36c0-8.5 6.3-14 14-14s14 5.5 14 14" fill="#241609"/></svg></div><span class="note">10,000+ students are already inside</span></div>
+    </div>
+    <div class="phone-visual">
+      <div class="phone-mock"><div class="phone-notch"></div><div class="phone-screen"><div class="wa-header"><div class="wa-avatar">TV</div><div><div class="wa-name">TaskVeda Community</div><div class="wa-status">10,230 members · 396 online</div></div></div><div class="wa-body"><div class="wa-msg" style="border-left:3px solid var(--orange);padding-left:10px;"><b>📢 Placement Cell</b>Microsoft SWE Internship — apply before Friday.<span class="wa-time">11:24 AM</span></div><div class="wa-msg" style="border-left:3px solid #075E54;padding-left:10px;"><b>📚 Resources</b>New AI Prompt Pack: 60 prompts for technical interviews.<span class="wa-time">10:15 AM</span></div><div class="wa-msg" style="border-left:3px solid #f5a623;padding-left:10px;"><b>👤 Mentor · Ananya</b>Resume review slots open for tonight, 8 PM.<span class="wa-time">9:48 AM</span></div><div class="wa-msg" style="border-left:3px solid #4dabf7;padding-left:10px;"><b>🏆 Events</b>Smart India Hackathon registrations close Sunday.<span class="wa-time">Yesterday</span></div><div class="wa-msg" style="border-left:3px solid #22d374;padding-left:10px;"><b>🔴 Live</b>Webinar: Breaking into Product-Based Companies — 7 PM today.<span class="wa-time">Yesterday</span></div></div></div></div>
+      <div class="wa-float wa-f1"><div class="num">10,000+</div><div class="lbl">Students</div></div>
+      <div class="wa-float wa-f2"><div class="num">150+</div><div class="lbl">Colleges</div></div>
+      <div class="wa-float wa-f3"><div class="num">500+</div><div class="lbl">Internship Alerts</div></div>
+      <div class="wa-float wa-live"><span class="live-dot"></span><span style="font-size:12px;font-weight:600;color:var(--black);">Live Now</span></div>
+    </div>
+  </div>
+</section>
+<!-- COMMUNITY FEATURES -->
+<section class="section" style="padding-top:0;background:var(--gray-50);">
+  <div class="wrap">
+    <div class="section-head center reveal"><div class="eyebrow">Inside the community</div><h2>Everything you get,<span class="accent">inside one community.</span></h2><p>No scattered links, no noisy groups. One organised space built around what actually moves your career forward.</p></div>
+    <div class="cfeature-grid reveal">
+      <div class="cfeature-card"><div class="cfeature-index">01</div><h3>Internship Alerts</h3><p>Daily verified opportunities from real companies, shared before they go public.</p><div class="cfeature-underline"></div></div>
+      <div class="cfeature-card"><div class="cfeature-index">02</div><h3>Weekly Webinars</h3><p>Live career sessions with engineers, recruiters and founders — every week.</p><div class="cfeature-underline"></div></div>
+      <div class="cfeature-card"><div class="cfeature-index">03</div><h3>AI Resources</h3><p>Curated prompt libraries and tools built specifically for engineering students.</p><div class="cfeature-underline"></div></div>
+      <div class="cfeature-card"><div class="cfeature-index">04</div><h3>Resume Reviews</h3><p>ATS-optimised feedback from mentors who've reviewed thousands of resumes.</p><div class="cfeature-underline"></div></div>
+      <div class="cfeature-card"><div class="cfeature-index">05</div><h3>Hackathons</h3><p>National-level events and team formations, posted as they open.</p><div class="cfeature-underline"></div></div>
+      <div class="cfeature-card"><div class="cfeature-index">06</div><h3>Career Community</h3><p>Peer learning with students walking the exact same path as you.</p><div class="cfeature-underline"></div></div>
+    </div>
+  </div>
+</section>
+<!-- TEAM -->
+<section class="section team-sec" id="team">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">The Team</div><h2>People Behind<span class="accent">TaskVeda.</span></h2></div><p>Meet the team building India's fastest-growing student career ecosystem.</p></div>
+    <div class="founder-wrap reveal">
+      <img src="images/team/rohit.jpeg" alt="Rohit Gallipalli" class="founder-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23eee%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 font-size=%2230%22 fill=%22%23999%22%3ERG%3C/text%3E%3C/svg%3E'">
+      <div><div class="founder-chip">✦ Founder & CEO</div><div class="founder-name">Rohit Gallipalli</div><div class="founder-role">Visionary · Builder · Student Advocate</div><p class="founder-bio">Rohit built TaskVeda to bridge the gap between learning and real-world experience. From scratch, he's empowered 5,000+ students through bootcamps, internships, and community events — creating India's fastest-growing student career ecosystem.</p><div class="socials"><a href="https://www.linkedin.com/in/rohit-gallipalli-ab38b6286/" target="_blank" class="social-pill">↗ LinkedIn</a><a href="mailto:info@taskveda.in" class="social-pill">✉ Email</a></div></div>
+    </div>
+    <div class="auto-scroll-wrap reveal" style="margin-top:28px;"><div class="team-scroll-track" id="teamGrid"></div></div>
+  </div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="testimonials-yt" id="testimonials">
+  <div class="ty-container">
+    <div class="ty-head reveal"><h2 class="testimonial-title"><span style="color:var(--black);">Testi</span><span class="orange">monials</span></h2><p>Hear directly from students about their learning experience with TaskVeda.</p></div>
+    <div class="ty-carousel reveal"><div class="ty-slider-nav"><button class="ty-nav ty-prev" id="tyPrev">‹</button><button class="ty-nav ty-next" id="tyNext">›</button></div><div class="ty-track-wrap"><div class="ty-track" id="tyTrack"></div></div></div>
+  </div>
+</section>
+<!-- REVIEWS -->
+<section class="wls-section" id="reviews">
+  <div class="wls-container">
+    <div class="section-head center reveal" style="margin-bottom:48px;"><div class="eyebrow">Reviews</div><h2>What Learners<br><span class="accent">Say.</span></h2></div>
+    <div class="wls-row-wrap"><div class="wls-row" id="wlsRow"></div></div>
+  </div>
+</section>
+<!-- FAQ -->
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="section-head center reveal"><div class="eyebrow">FAQ</div><h2>Questions? We've<br><span class="accent">got answers.</span></h2></div>
+    <div class="faq-wrap" id="faqWrap"></div>
+  </div>
+</section>
+<!-- FINAL CTA -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap"><div class="final-cta reveal"><h2>Ready to build the career you actually want?</h2><p>Join 10,000+ students already learning, building, and getting placed with TaskVeda.</p><div class="final-actions"><a href="#programs" class="btn btn-white">Explore Programs</a><a href="#" class="btn-outline-light" onclick="openRegisterModal();return false;">Get Started</a></div></div></div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="#" class="logo"><img src="images/logo.png" alt="TaskVeda" class="logo-img" style="width:40px;height:40px;"><div class="logo-text"><div class="logo-title" style="color:#fff;"><span class="task" style="color:#fff;">Task</span><span class="veda">Veda</span></div></div></a><p>India's student career ecosystem — connecting learning with earning through programs, internships, freelancing, and community.</p></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="#programs">Programs &amp; Bootcamps</a></li><li><a href="#internships">Internships</a></li><li><a href="#webinars">Webinars</a></li><li><a href="#certificates">Certificates</a></li><li><a href="certify.html">Certificate Portal ↗</a></li></ul></div>
+      <div class="footer-col"><h4>Community</h4><ul><li><a href="#ambassadors">Campus Ambassadors</a></li><li><a href="#community">WhatsApp Group</a></li><li><a href="#team">Our Team</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="refund-and-cancellation-policy.html">Refund &amp; Cancellation</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@taskveda.in">info@taskveda.in</a></li><li><a href="https://wa.me/919966367583" target="_blank">+91 99663 67583</a></li><li><a href="#">Hyderabad</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 TaskVeda. All rights reserved.</span>
+      <div class="footer-built">Built with <span>❤</span> by TaskVeda Team</div>
+      <div class="footer-socials"><a href="https://www.instagram.com/taskveda/" target="_blank" class="f-soc" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://www.linkedin.com/company/taskveda/" target="_blank" class="f-soc" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a><a href="https://www.youtube.com/@taskveda" target="_blank" class="f-soc" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div>
+    </div>
   </div>
 </footer>
+<!-- REGISTRATION MODAL -->
+<div class="modal-bg" id="modalBg"><div class="modal-box"><button class="modal-close" onclick="closeModal()">✕</button><div id="modalFormWrap"><div class="modal-title">Register Now</div><div class="modal-sub">Fill in your details — check your email to confirm your seat.</div><div class="form-g"><label class="form-lbl">Full Name *</label><input type="text" class="form-inp" id="rName" placeholder="Your full name"></div><div class="form-g"><label class="form-lbl">Email Address *</label><input type="email" class="form-inp" id="rEmail" placeholder="your@email.com"></div><div class="form-g"><label class="form-lbl">Phone Number *</label><input type="tel" class="form-inp" id="rPhone" placeholder="+91 XXXXX XXXXX"></div><div class="form-g"><label class="form-lbl">College / Institution</label><input type="text" class="form-inp" id="rCollege" placeholder="Your college name"></div><div class="form-g"><label class="form-lbl">Year of Study</label><select class="form-inp" id="rYear"><option value="">Select year...</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Final Year</option><option>Graduate</option><option>Other</option></select></div><div class="form-g"><label class="form-lbl">Interested Domain</label><select class="form-inp" id="rDomain"><option value="">Select a domain...</option><option>Web Development</option><option>Python Development</option><option>Java Full Stack</option><option>Cloud Computing</option><option>AI / ML</option><option>AI Tools Mastery</option><option>UI/UX Design</option><option>Digital Marketing</option><option>Freelancing</option><option>Communication & Placement</option><option>Other</option></select></div><button class="btn-submit" onclick="submitReg()">Register Now →</button></div><div class="form-success" id="formSuccess"><div class="fs-icon">🎉</div><div class="fs-title">You're In!</div><p class="fs-sub">Check your email — choose video or deposit to lock your seat.<br>Questions? <a href="https://chat.whatsapp.com/FRwP7XU2uhpHPLIDoEhL9L">Join WhatsApp</a></p></div></div></div>
+<!-- AMBASSADOR MODAL -->
+<div class="modal-bg" id="ambassadorBg" style="z-index:500;"><div class="modal-box" style="max-width:500px;"><button class="modal-close" onclick="closeAmbassadorForm()">✕</button><div id="ambFormWrap"><div class="modal-title">🌟 Become a Campus Ambassador</div><div class="modal-sub">Join TaskVeda's campus network and represent India's #1 student career ecosystem at your college.</div><div class="form-g"><label class="form-lbl">Full Name *</label><input type="text" class="form-inp" id="ambName" placeholder="Your full name"></div><div class="form-g"><label class="form-lbl">Email Address *</label><input type="email" class="form-inp" id="ambEmail" placeholder="your@email.com"></div><div class="form-g"><label class="form-lbl">Phone Number *</label><input type="tel" class="form-inp" id="ambPhone" placeholder="+91 XXXXX XXXXX"></div><div class="form-g"><label class="form-lbl">College / University *</label><input type="text" class="form-inp" id="ambCollege" placeholder="Your college name"></div><div class="form-g"><label class="form-lbl">LinkedIn Profile URL</label><input type="url" class="form-inp" id="ambLinkedin" placeholder="https://linkedin.com/in/..."></div><div class="form-g"><label class="form-lbl">Why do you want to join?</label><textarea class="form-inp" id="ambWhy" rows="3" placeholder="Tell us briefly..."></textarea></div><button class="btn-submit" onclick="submitAmbassador()">🚀 Submit Application →</button></div><div class="form-success" id="ambSuccess"><div class="fs-icon">🌟</div><div class="fs-title">Application Submitted!</div><p class="fs-sub">Thank you for applying! Our team will review and reach out within 48 hours.</p></div></div></div>
+<!-- VIDEO MODAL -->
+<div class="modal-bg" id="tvVideoModal" style="z-index:750;"><div class="modal-box" style="max-width:700px;padding:20px;background:#000;border:none;"><button class="modal-close" onclick="closeVideoModal()" style="background:rgba(255,255,255,0.2);color:#fff;border:none;top:10px;right:10px;">✕</button><div style="position:relative;width:100%;aspect-ratio:16/9;"><iframe id="tvVideoFrame" src="" title="Video" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;"></iframe></div></div></div>
+<!-- ADMIN MODAL -->
+<div class="admin-bg" id="adminBg"><div class="admin-box"><div class="admin-header"><div class="admin-title">Task<span>Veda</span> Admin Panel</div><button class="admin-close" onclick="closeAdminPanel()">✕</button></div><div class="admin-tabs"><button class="admin-tab active" onclick="switchAdminTab('programs',this)">Programs</button><button class="admin-tab" onclick="switchAdminTab('webinars',this)">Webinars</button><button class="admin-tab" onclick="switchAdminTab('team',this)">Team</button><button class="admin-tab" onclick="switchAdminTab('ambassadors',this)">Ambassadors</button></div><div class="admin-body"><div class="admin-section active" id="adminPrograms"><div id="adminProgramsList" class="admin-list"></div><button class="admin-add-btn" onclick="adminAddProgram()">+ Add Program</button><div class="admin-form" id="adminProgramForm"><div class="admin-form-title">Edit Program</div><div class="admin-form-grid"><div class="form-g"><label class="form-lbl">Title *</label><input type="text" class="form-inp" id="apTitle" placeholder="Program title"></div><div class="form-g"><label class="form-lbl">Price</label><input type="text" class="form-inp" id="apPrice" placeholder="₹199 or Free"></div><div class="form-g admin-form-full"><label class="form-lbl">Description</label><input type="text" class="form-inp" id="apDesc" placeholder="Short description"></div><div class="form-g"><label class="form-lbl">Duration</label><input type="text" class="form-inp" id="apDuration" placeholder="4 Weeks"></div><div class="form-g"><label class="form-lbl">Projects</label><input type="text" class="form-inp" id="apProjects" placeholder="3 Projects"></div></div><div class="admin-form-actions"><button class="admin-cancel-btn" onclick="cancelAdminForm('program')">Cancel</button><button class="admin-save-btn" onclick="saveProgram()">Save Program →</button></div></div></div><div class="admin-section" id="adminWebinars"><div id="adminWebinarsList" class="admin-list"></div><button class="admin-add-btn" onclick="adminAddWebinar()">+ Add Webinar</button><div class="admin-form" id="adminWebinarForm"><div class="admin-form-title">Edit Webinar</div><div class="admin-form-grid"><div class="form-g admin-form-full"><label class="form-lbl">Title *</label><input type="text" class="form-inp" id="awTitle" placeholder="Webinar title"></div><div class="form-g"><label class="form-lbl">Speaker</label><input type="text" class="form-inp" id="awSpeaker" placeholder="Speaker name"></div><div class="form-g"><label class="form-lbl">Date</label><input type="text" class="form-inp" id="awDate" placeholder="June 15, 2025"></div></div><div class="admin-form-actions"><button class="admin-cancel-btn" onclick="cancelAdminForm('webinar')">Cancel</button><button class="admin-save-btn" onclick="saveWebinar()">Save Webinar →</button></div></div></div><div class="admin-section" id="adminTeam"><div id="tvTeamList" class="admin-list"></div><button class="admin-add-btn" onclick="tvTeamAdd()">+ Add Member</button></div><div class="admin-section" id="adminAmbassadors"><div id="tvAmbList" class="admin-list"></div><button class="admin-add-btn" onclick="tvAmbAdd()">+ Add Ambassador</button></div></div></div></div>
+<div class="admin-saved-toast" id="adminToast">✓ Saved successfully!</div>
 <script>
-const text = "Build Real Tech Skills That Actually Matter";
-  let i = 0;
-function type() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 50);
+function toggleMobileMenu(){const m=document.getElementById('mobileMenu'),o=document.getElementById('mobileMenuOverlay'),b=document.getElementById('hamburgerBtn');m.classList.contains('open')?closeMobileMenu():(m.classList.add('open'),o.classList.add('open'),b.classList.add('open'),document.body.style.overflow='hidden')}
+function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('mobileMenuOverlay').classList.remove('open');document.getElementById('hamburgerBtn').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('click',function(e){const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburgerBtn');if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))closeMobileMenu()});
+window.addEventListener('scroll',function(){if(document.getElementById('mobileMenu').classList.contains('open'))closeMobileMenu()},{passive:true});
+// Theme
+const themeBtn=document.getElementById('themeBtn'),themeIcon=document.getElementById('themeIcon');let darkMode=document.documentElement.getAttribute('data-theme')==='dark';
+function toggleTheme(){darkMode=!darkMode;document.documentElement.setAttribute('data-theme',darkMode?'dark':'light');themeIcon.textContent=darkMode?'☀️':'🌙';localStorage.setItem('tv-theme',darkMode?'dark':'light')}
+if(localStorage.getItem('tv-theme')==='dark')toggleTheme();themeBtn.addEventListener('click',toggleTheme);
+// Trust
+const colleges=[{name:'BITS Pilani',mono:'BP'},{name:'SRM',mono:'SRM'},{name:'VIT',mono:'VIT'},{name:'GLA University',mono:'GLA'},{name:'Amity University',mono:'AU'},{name:'Chandigarh University',mono:'CU'},{name:'LPU',mono:'LPU'},{name:'KIET Group',mono:'KI'},{name:'MIT Manipal',mono:'MM'},{name:'VNR VJIET',mono:'VN'},{name:'CBIT Hyderabad',mono:'CB'},{name:'GRIET',mono:'GR'},{name:'Sreenidhi Institute',mono:'SN'},{name:'JNTU Hyderabad',mono:'JN'},{name:'KL University',mono:'KL'},{name:'GITAM University',mono:'GI'},{name:'Vasavi College',mono:'VC'},{name:'CVR College',mono:'CV'}];
+const trustTrack=document.getElementById('trustTrack');if(trustTrack)trustTrack.innerHTML=[...colleges,...colleges].map(c=>'<div class="trust-item"><span class="trust-badge">'+c.mono+'</span><span>'+c.name+'</span></div>').join('');
+// Programs
+const PROGRAMS=[{id:'p1',title:'Zero to Confident Bootcamp',desc:'Go from zero to confident developer in 4 weeks.',duration:'4 Weeks',projects:'3 Projects',status:'live',price:'Free',icon:'🚀'},{id:'p2',title:'AI Tools & Prompt Engineering',desc:'Master modern AI tools through real projects.',duration:'45 Days',projects:'5 Projects',status:'live',price:'Free',icon:'🤖'},{id:'p3',title:'Python Development',desc:'Learn Python from scratch with mentorship.',duration:'6 Weeks',projects:'4 Projects',status:'live',price:'Free',icon:'🐍'},{id:'p4',title:'Web Development',desc:'Full-stack web dev with React and Node.js.',duration:'8 Weeks',projects:'5 Projects',status:'live',price:'₹199',icon:'🌐'},{id:'p5',title:'Java Full Stack',desc:'Become a full-stack dev with Java & Spring Boot.',duration:'60 Days',projects:'4 Projects',status:'live',price:'₹199',icon:'☕'},{id:'p6',title:'Digital Marketing with AI',desc:'AI-powered marketing strategy & growth.',duration:'45 Days',projects:'3 Projects',status:'upcoming',price:'Free',icon:'📈'}];
+const programsGrid=document.getElementById('programsGrid');if(programsGrid)programsGrid.innerHTML=PROGRAMS.map(p=>'<div class="prog-card"><div class="prog-body"><span class="prog-status '+(p.status==='live'?'ps-live':'ps-soon')+'">'+(p.status==='live'?'● Live':'○ Upcoming')+'</span><span class="prog-icon">'+p.icon+'</span><div class="prog-title">'+p.title+'</div><div class="prog-desc">'+p.desc+'</div><div class="prog-meta"><span class="prog-pill">⏱ '+p.duration+'</span><span class="prog-pill">📁 '+p.projects+'</span>'+(p.status==='live'?'<span class="prog-pill orange">'+p.price+'</span>':'')+'</div><button class="btn-prog" onclick="openRegisterModal()">'+(p.status==='live'?'Enroll Now →':'Join Waitlist →')+'</button></div></div>').join('');
+// Internships
+const INTERNSHIPS=[{name:'Web Development Intern',emoji:'🌐',badge:'Open',dur:'3 Months'},{name:'Python Development Intern',emoji:'🐍',badge:'Open',dur:'3 Months'},{name:'AI/ML Intern',emoji:'🤖',badge:'Open',dur:'6 Months'},{name:'Digital Marketing Intern',emoji:'📈',badge:'Open',dur:'3 Months'},{name:'Content Writing Intern',emoji:'✍️',badge:'Open',dur:'2 Months'},{name:'UI/UX Design Intern',emoji:'🎨',badge:'Open',dur:'4 Months'},{name:'Cloud Computing Intern',emoji:'☁️',badge:'Soon',dur:'3 Months'},{name:'HR Intern',emoji:'👥',badge:'Soon',dur:'3 Months'}];
+const internshipList=document.getElementById('internshipList');if(internshipList)internshipList.innerHTML=INTERNSHIPS.map(i=>'<div class="int-item" onclick="openRegisterModal()"><div class="int-left"><span class="int-emoji">'+i.emoji+'</span><span class="int-name">'+i.name+'</span><span class="int-badge '+(i.badge==='Open'?'b-open':'b-soon')+'">'+i.badge+'</span></div><div class="int-right"><span class="int-dur">'+i.dur+'</span><button class="int-arr" onclick="event.stopPropagation();openRegisterModal()">→</button></div></div>').join('');
+// Webinars
+const WEBINARS=[{id:'w1',day:'01',month:'Jun · Sun',title:'How to Get Internships & Build a Strong Resume',desc:'Complete roadmap for landing internships in 2026.',img:'https://i.pravatar.cc/100?img=13',name:'Rohit Gallipalli',role:'Founder & CEO'},{id:'w2',day:'08',month:'Jun · Sun',title:'LinkedIn Profile That Gets You Hired',desc:'Optimize your profile to attract opportunities.',img:'https://i.pravatar.cc/100?img=47',name:'Kafia Khan',role:'Marketing Head'},{id:'w3',day:'15',month:'Jun · Sun',title:'AI Tools to Boost Your Productivity',desc:'Essential AI tools every student should know.',img:'https://i.pravatar.cc/100?img=32',name:'Gayathri M',role:'Community Lead'},{id:'w4',day:'22',month:'Jun · Sun',title:'Crack Interviews with Confidence',desc:'Interview prep tips from industry experts.',img:'https://i.pravatar.cc/100?img=15',name:'Industry Expert',role:'Guest Speaker'}];
+const webinarList=document.getElementById('webinarList');if(webinarList)webinarList.innerHTML=WEBINARS.map(w=>'<div class="webinar-row"><div class="wr-date"><div class="d">'+w.day+'</div><div class="m">'+w.month+'</div></div><div class="wr-info"><h4>'+w.title+'</h4><p>'+w.desc+'</p></div><div class="wr-host"><img src="'+w.img+'" alt=""><div><div class="hn">'+w.name+'</div><div class="hr">'+w.role+'</div></div></div><a href="#" class="wr-cta" onclick="openRegisterModal(\''+w.id+'\',\''+w.title.replace(/'/g,"\\'")+'\');return false;">Register</a></div>').join('');
+// Testimonials
+const TESTIMONIALS=[{video:'qbZwbz8ORlc'},{video:'R-MlPr9z2uY'},{video:'iR6h5JbPvUQ'},{video:'dsQdCa1uBTc'},{video:'MQp1XePT-3Y'},{video:'YlTaB42GGew'},{video:'mLpnd0Um49A'}];
+const tyTrack=document.getElementById('tyTrack');let tyIndex=0;
+if(tyTrack){tyTrack.innerHTML=TESTIMONIALS.map(t=>'<div class="ty-card" data-video="'+t.video+'" onclick="openVideo(\''+t.video+'\')"><div class="ty-thumb"><img src="https://img.youtube.com/vi/'+t.video+'/hqdefault.jpg"><div class="ty-play">▶</div></div><div class="ty-info"><p>TaskVeda Learner</p></div></div>').join('');const total=TESTIMONIALS.length;document.getElementById('tyPrev').addEventListener('click',()=>{tyIndex=(tyIndex-1+total)%total;updateTyTrack()});document.getElementById('tyNext').addEventListener('click',()=>{tyIndex=(tyIndex+1)%total;updateTyTrack()})}
+function updateTyTrack(){tyTrack.style.transform='translateX('+(-tyIndex*260)+'px)'}
+function openVideo(id){document.getElementById('tvVideoFrame').src='https://www.youtube.com/embed/'+id+'?autoplay=1';document.getElementById('tvVideoModal').classList.add('show')}
+function closeVideoModal(){document.getElementById('tvVideoFrame').src='';document.getElementById('tvVideoModal').classList.remove('show')}
+// Reviews
+const REVIEWS=[{badge:'INTERNSHIP',stars:4,text:'"Joined the Digital Marketing internship and learned so much in just 4 weeks."',avatar:'SI',name:'Sneha Iyer',role:'MBA Fresher'},{badge:'WEBINAR',stars:4,text:'"Good platform overall. The webinar sessions were the highlight."',avatar:'AM',name:'Arjun Mehta',role:'Cloud Engineer'},{badge:'COMMUNITY',stars:5,text:'"TaskVeda is genuinely different — it is an ecosystem, not just courses."',avatar:'DP',name:'Divya Pillai',role:'Student, Symbiosis'},{badge:'PROGRAMS',stars:4,text:'"Started freelancing after completing the Web Development program."',avatar:'RD',name:'Rohan Desai',role:'Freelancer'}];
+const wlsRow=document.getElementById('wlsRow');if(wlsRow)wlsRow.innerHTML=[...REVIEWS,...REVIEWS].map(r=>'<div class="wls-card"><div class="wls-card-top"><span class="wls-badge"><i></i>'+r.badge+'</span><span class="wls-quote-icon">"</span></div><div class="wls-stars">'+(r.stars>=1?'<span class="on">★</span>':'<span class="off">★</span>')+(r.stars>=2?'<span class="on">★</span>':'<span class="off">★</span>')+(r.stars>=3?'<span class="on">★</span>':'<span class="off">★</span>')+(r.stars>=4?'<span class="on">★</span>':'<span class="off">★</span>')+(r.stars>=5?'<span class="on">★</span>':'<span class="off">★</span>')+'</div><p class="wls-text">'+r.text+'</p><div class="wls-person"><div class="wls-avatar">'+r.avatar+'</div><div><p class="wls-name">'+r.name+'</p><p class="wls-role">'+r.role+'</p></div></div></div>').join('');
+// FAQ
+const FAQS=[{q:'Who are TaskVeda\'s programs designed for?',a:'Our cohorts are built primarily for engineering students who want practical, job-ready skills — from first-year students exploring AI to final-years preparing for placements.'},{q:'Do I need prior experience to join?',a:'No. Each program starts from the fundamentals and builds up, so you can join whether you\'re just getting started or already have some experience.'},{q:'How are the cohorts delivered?',a:'Everything runs live online, with real mentors, weekly assessments, and a community you stay connected to throughout and after the program.'},{q:'What happens after I finish a cohort?',a:'You\'ll receive an industry-recognized certificate and move into our placement support track — resume reviews, mock interviews, and access to hiring partners.'},{q:'Can my college partner with TaskVeda?',a:'Yes — we run campus partnerships with ambassador programs and on-campus webinars. Reach out through the "Partner With Us" button to start the conversation.'}];
+const faqWrap=document.getElementById('faqWrap');if(faqWrap)faqWrap.innerHTML=FAQS.map((f,i)=>'<details class="faq-item reveal"'+(i===0?' open':'')+'><summary>'+f.q+'<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="faq-answer">'+f.a+'</div></details>').join('');
+// Reveal observer
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}})},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// Modal functions
+let currentWebinarId = null;
+let currentWebinarTitle = null;
+
+function openRegisterModal(webinarId = null, webinarTitle = null) {
+  currentWebinarId = webinarId;
+  currentWebinarTitle = webinarTitle;
+  document.getElementById('modalBg').classList.add('show');
+  // Update modal title if it's a webinar
+  const modalTitle = document.querySelector('#modalFormWrap .modal-title');
+  if (modalTitle) {
+    modalTitle.textContent = webinarTitle ? `Register for: ${webinarTitle}` : 'Register Now';
   }
 }
-window.onload = type;
-</script>
-<script>
-function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
-</script>
-<script>
-// Popup Logic
-function setupPopup(cardId, popupId) {
-    const card = document.getElementById(cardId);
-    const popup = document.getElementById(popupId);
-    const closeBtn = popup.querySelector('.close-btn');
-
-    card.addEventListener('click', (e) => {
-        e.preventDefault();
-        popup.classList.add('show');
-    });
-
-    function closePopup() {
-        popup.classList.remove('show');
-    }
-
-    closeBtn.addEventListener('click', closePopup);
-
-    popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
-            closePopup();
-        }
-    });
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape" && popup.classList.contains('show')) {
-            closePopup();
-        }
-    });
+function closeModal(){
+  document.getElementById('modalBg').classList.remove('show');
+  currentWebinarId = null;
+  currentWebinarTitle = null;
 }
-
-setupPopup('day-job-card', 'day-job-popup');
-setupPopup('freelancing', 'freelancing-popup');
-setupPopup('freelancing-nav-link', 'freelancing-popup');
-setupPopup('freelancing-mobile-nav-link', 'freelancing-popup');
+function openAmbassadorForm(){document.getElementById('ambassadorBg').classList.add('show')}
+function closeAmbassadorForm(){document.getElementById('ambassadorBg').classList.remove('show')}
+async function submitReg(){
+  const name=document.getElementById('rName').value.trim();
+  const email=document.getElementById('rEmail').value.trim();
+  const phone=document.getElementById('rPhone').value.trim();
+  const college=document.getElementById('rCollege').value.trim();
+  const domain=document.getElementById('rDomain').value;
+  if(!name||!email){alert('Please fill in your name and email');return}
+  const btn=document.querySelector('.btn-submit');btn.disabled=true;btn.textContent='Submitting...';
+  try{
+    // Use the same deployed Apps Script URL as accelerator pages
+    const SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbzcjoqiFJQMPwUyB1Uo3tZkTOq1QSeYdnuZN9OdKOmDUnIlZBnQem78clj-JRnqwhPz/exec';
+    const payload = {
+      formType: currentWebinarId ? 'webinar' : 'program',
+      webinarId: currentWebinarId || '',
+      webinarTitle: currentWebinarTitle || '',
+      program: currentWebinarId ? '' : 'Zero to Confidence',
+      name: name,
+      email: email,
+      phone: phone,
+      college: college,
+      domain: domain,
+      year: document.getElementById('rYear')?.value || '',
+      referral: 'Website',
+      timestamp: new Date().toISOString()
+    };
+    await fetch(SUBMIT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(Object.entries(payload)).toString()
+    });
+    // With no-cors we can't read response, assume success
+    document.getElementById('modalFormWrap').style.display='none';
+    document.getElementById('formSuccess').classList.add('show');
+  }catch(e){
+    document.getElementById('modalFormWrap').style.display='none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+  btn.disabled=false;btn.textContent='Register Now →';
+}
+function submitAmbassador(){document.getElementById('ambFormWrap').style.display='none';document.getElementById('ambSuccess').classList.add('show')}
+// Admin functions (simplified)
+function openAdminPanel(){document.getElementById('adminBg').classList.add('show')}
+function closeAdminPanel(){document.getElementById('adminBg').classList.remove('show')}
+function switchAdminTab(tab,btn){document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));document.getElementById('admin'+tab.charAt(0).toUpperCase()+tab.slice(1)).classList.add('active');btn.classList.add('active')}
+function adminAddProgram(){document.getElementById('adminProgramForm').classList.add('open')}
+function cancelAdminForm(t){document.getElementById('admin'+t.charAt(0).toUpperCase()+t.slice(1)+'Form').classList.remove('open')}
+function saveProgram(){document.getElementById('adminProgramForm').classList.remove('open');showToast()}
+function saveWebinar(){document.getElementById('adminWebinarForm').classList.remove('open');showToast()}
+function adminAddWebinar(){document.getElementById('adminWebinarForm').classList.add('open')}
+function tvTeamAdd(){showToast()}
+function tvAmbAdd(){showToast()}
+function showToast(){const t=document.getElementById('adminToast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+// Handle Enter for mobile menu close
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',closeMobileMenu));
 </script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="FkbQQXJlHqgmS3tuc7c64";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
-  <!-- deploy trigger -->
 </body>
 </html>
