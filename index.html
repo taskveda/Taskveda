@@ -802,7 +802,7 @@ async function submitReg(){
   const btn=document.querySelector('.btn-submit');btn.disabled=true;btn.textContent='Submitting...';
   try{
     // Use the same deployed Apps Script URL as accelerator pages
-    const SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbw98HtkpzzpmxGBFOa7WwKXgUOcg2aGTM82uFLroV9v12hPYhi5texibEsdeYWsvLf9ng/exec';
+    const SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbzu0e9fDD_A3auD5mB_jKUyYXK6TgsE80HS2Z_F8JHGATCI9nr8I6Ryyf5fCNtKSiNDgw/exec';
     const payload = {
       formType: currentWebinarId ? 'webinar' : 'program',
       webinarId: currentWebinarId || '',
