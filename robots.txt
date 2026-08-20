@@ -1,4 +1,4 @@
-User-agent: *
-Disallow:
+# This site is archived. New site: https://www.taskveda.in
 
-Sitemap: https://taskveda.in/sitemap.xml
+User-agent: *
+Disallow: /
